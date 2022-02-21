@@ -19,5 +19,18 @@ body {
 
 .buttons{
   margin-left: 370px;
-  margin-top: 120px;
+  margin-top: 130px;
+  text-align: center;
+  padding-right: 300px;
+  position:relative;
+}
+.submitbutton{
+  
+  padding-left: 300px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+h1{
+  
 }
