@@ -25,12 +25,18 @@ body {
   position:relative;
 }
 .submitButton{
-  padding-left: 200px;
-  padding-bottom: 30px;
-  position: relative;
-  width: 300px;
+  width: 150px;
+  padding: 15px 0;
   text-align: center;
-  margin-left: 280px;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #009688;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .form1{
@@ -70,13 +76,14 @@ input[type="text"] {
   height: 70px;
   
 }
-.navbar-nav{
+.navbar-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: dimgrey;
+  background: #fff;
 }
+
 .nav-item{
   float: left;
   display: block;
@@ -84,7 +91,7 @@ input[type="text"] {
   padding: 14px 14px;
 }
 .nav-item:hover{
-  background-color:black ;
+  background-color: #009688; ;
 }
 
 
