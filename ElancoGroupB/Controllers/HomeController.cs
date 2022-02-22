@@ -23,6 +23,14 @@ public class HomeController : Controller
     public async Task<IActionResult> Index(string imagepath)
     {
         var extractedModel =  await Service.RequestAnalyzeDocumentAsync(imagepath);
+        Console.WriteLine($"Clinic Name: '{extractedModel.Clinic.Name}': ");
+        Console.WriteLine($"Clinic Address: '{extractedModel.Clinic.Address}': ");
+        Console.WriteLine($"Clinic Phone: '{extractedModel.Clinic.Phone}': ");
+        Console.WriteLine($"Clinic Zip: '{extractedModel.Clinic.Zip}': ");
+        Console.WriteLine($"Pet Name: '{extractedModel.Pet.Name}': ");
+        Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber}': ");
+        Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount}': ");
+        Console.WriteLine($"Date: '{extractedModel.Date}': ");
         return View(extractedModel);
     }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj": {}
+    "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj": {}
   },
   "projects": {
-    "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj": {
+    "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+        "projectUniqueName": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
         "projectName": "ElancoGroupB",
-        "projectPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+        "projectPath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
         "packagesPath": "/Users/lundaljung/.nuget/packages/",
-        "outputPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/",
+        "outputPath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lundaljung/.nuget/NuGet/NuGet.Config"

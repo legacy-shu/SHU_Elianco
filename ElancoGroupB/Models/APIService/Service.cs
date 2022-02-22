@@ -37,9 +37,9 @@ public class Service
             {
                 string fieldName = fieldKvp.Key;
                 DocumentField field = fieldKvp.Value;
-                Console.WriteLine($"Field '{fieldName}': ");
-                Console.WriteLine($"  Content: '{field.Content}'");
-                Console.WriteLine($"  Confidence: '{field.Confidence}'");
+                // Console.WriteLine($"Field '{fieldName}': ");
+                // Console.WriteLine($"  Content: '{field.Content}'");
+                // Console.WriteLine($"  Confidence: '{field.Confidence}'");
                 switch (fieldName)
                 {
                     case "clinic_name":
