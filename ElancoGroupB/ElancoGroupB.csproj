@@ -10,4 +10,8 @@
       <None Include="wwwroot\images\logo.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Azure.AI.FormRecognizer" Version="4.0.0-beta.3" />
+    </ItemGroup>
+
 </Project>
