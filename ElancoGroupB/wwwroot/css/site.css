@@ -24,12 +24,31 @@ body {
   padding-right: 300px;
   position:relative;
 }
-.submitbutton{
-  
+.submitButton{
   padding-left: 200px;
   padding-bottom: 30px;
   position: relative;
+  width: 300px;
+  text-align: center;
+  margin-left: 280px;
 }
+
+.form1{
+  align-content: center;
+}
+
+input {
+  width: 100%;
+}
+
+input[type="text"] {
+  width:100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
 
 
 
