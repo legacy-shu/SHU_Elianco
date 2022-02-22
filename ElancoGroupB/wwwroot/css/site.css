@@ -48,6 +48,24 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+.PetHeading {
+  font-family: Arial, serif;
+  color: #0a58ca;
+}
+
+.PersonInfo{
+  font-family: Arial, serif;
+  color: #0a58ca;
+}
+
+.display-4{
+  font-family: Arial, serif;
+  color: #0a58ca;
+}
+
+.display-5{
+  color: #0a58ca;
+}
 
 
 
