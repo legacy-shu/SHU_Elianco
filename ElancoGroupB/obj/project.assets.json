@@ -346,19 +346,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\haide\\.nuget\\packages\\": {}
+    "C:\\Users\\aliha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
+      "projectUniqueName": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
       "projectName": "ElancoGroupB",
-      "projectPath": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
-      "packagesPath": "C:\\Users\\haide\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\obj\\",
+      "projectPath": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
+      "packagesPath": "C:\\Users\\aliha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\haide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aliha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -407,7 +407,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
