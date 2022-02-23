@@ -7,32 +7,31 @@ public class Service
 {
     public static async Task<Purchase> RequestAnalyzeDocumentAsync(string filePath)
     {
-        //filePath = "sample/Receipt4.png";
-
+        Console.WriteLine(filePath);
         string endpoint = "https://form-recognizer-elanco.cognitiveservices.azure.com/";
-        string apiKey = "d89c75fca6d04055bf52c642b54f479c";
+        string apiKey = "ad92cf9cf82a49efbbc7b51d7a8bdfe2";
         var credential = new AzureKeyCredential(apiKey);
         var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
         string modelId = "custom1"; 
 
         using var stream = new FileStream(filePath, FileMode.Open);
-
+        
         AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentAsync(modelId, stream);
-
+        
         await operation.WaitForCompletionAsync();
-
+        
         AnalyzeResult result = operation.Value;
-
+        
         Console.WriteLine($"Document was analyzed with model with ID: {result.ModelId}");
-
+        
         Purchase extractedModel = new Purchase();
-
+        
         foreach (AnalyzedDocument document in result.Documents)
         {
-
+        
             Console.WriteLine($"Document of type: {document.DocType}");
-
+        
             foreach (KeyValuePair<string, DocumentField> fieldKvp in document.Fields)
             {
                 string fieldName = fieldKvp.Key;

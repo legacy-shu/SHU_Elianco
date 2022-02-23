@@ -14,5 +14,7 @@ Global
 		{11F769AE-47BA-498F-B51F-3375AFE9CE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F769AE-47BA-498F-B51F-3375AFE9CE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F769AE-47BA-498F-B51F-3375AFE9CE09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F769AE-47BA-498F-B51F-3375AFE9CE09}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{11F769AE-47BA-498F-B51F-3375AFE9CE09}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

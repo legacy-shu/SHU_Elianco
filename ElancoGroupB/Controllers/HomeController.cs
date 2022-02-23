@@ -1,18 +1,17 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ElancoGroupB.Models;
+using Microsoft.Extensions.FileProviders;
 
 namespace ElancoGroupB.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly IWebHostEnvironment Environment;
 
-    public HomeController(ILogger<HomeController> logger, IWebHostEnvironment e)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        Environment = e;
     }
     
     public IActionResult Index()
@@ -28,13 +27,18 @@ public class HomeController : Controller
         {
             return View();
         }
+
+        // Combines two strings into a path.
+        var filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{imagepath.FileName}";
+        Console.WriteLine(filepath);
+        using (FileStream fs = System.IO.File.Create(filepath))
+        {
+            imagepath.CopyTo(fs);
+            fs.Flush();
+        }
         
-        var fileName = Path.Combine(Environment.WebRootPath, Path.GetFileName(imagepath.FileName));
-        imagepath.CopyTo(new FileStream(fileName, FileMode.Create));
-        var path = "/" + Path.GetFileName(imagepath.FileName);
-        Console.WriteLine(fileName);
-        var extractedModel =  await Service.RequestAnalyzeDocumentAsync(fileName);
-        System.IO.File.Delete(path);
+        var extractedModel = await Service.RequestAnalyzeDocumentAsync(filepath);
+        System.IO.File.Delete(filepath);
         Console.WriteLine($"Clinic Name: '{extractedModel.Clinic.Name}': ");
         Console.WriteLine($"Clinic Address: '{extractedModel.Clinic.Address}': ");
         Console.WriteLine($"Clinic Phone: '{extractedModel.Clinic.Phone}': ");
