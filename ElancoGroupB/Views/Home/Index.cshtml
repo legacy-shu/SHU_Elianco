@@ -1,4 +1,4 @@
-﻿@model Purchase
+﻿@model UserViewModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,21 +26,17 @@
         <h1 class="display-4">YOUR PET AND YOU!!</h1>
         <p class="display-5">Welcome To the Elanco Rebate Processes.</p>
         <h2>Obtaining A Rebate</h2>
-        <h3>To obtain a rebate please upload a picture of your Receipt or Invouce via a device. Once this step has been completed please upload the image by 'clicking submit'. 
-            This will extract key detils from your Receipt or invoice, this can also be edited if there are errors from extraction. </h3>
     </div>
 
-    <div class="buttons">
-        <form action="/Index">
-            <input type="file" id="myFile" name="filename">
-        </form>
-    </div> 
+    <form class="form1" method="post" action="" enctype="multipart/form-data">
+        <div class="buttons">
+            <input type="file" name="imagepath"/><br/>
+        </div>
+        <div class="submitButton">
+            <input asp-page-handler="Upload" type="submit" value="Upload"/>
+        </div>
+    </form>
     
-     <div class="submitButton">
-            <form method="post">
-                <input type="Submit"/>
-            </form>
-    </div>
 
     <div class="form1">
         <h1 class="PersonInfo">
@@ -48,29 +44,29 @@
         </h1>
         <form>
             <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" asp-for="@Model.Clinic.Name">
-
+            <input type="text" id="fname" name="fname" asp-for="@Model.Purchase.Clinic.Name">
+            
             <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname">
-
+            <input type="text" id="lname" name="lname" asp-for="@Model.Purchase.Clinic.Address">
+            
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address">
-
+            <input type="text" id="address" name="address" asp-for="@Model.Purchase.Clinic.Phone">
+            
             <label for="city">City:</label>
-            <input type="city" id="city" name="city">
-
+            <input type="city" id="city" name="city" asp-for="@Model.Purchase.Clinic.Zip">
+            
             <label for="State">State:</label>
-            <input type="State" id="State" name="State">
-
+            <input type="State" id="State" name="State" asp-for="@Model.Purchase.Pet.Name">
+            
             <label for="Zipcode">Zip Code:</label>
-            <input type="Zipcode" id="Zipcode" name="Zipcode">
-
+            <input type="Zipcode" id="Zipcode" name="Zipcode" asp-for="@Model.Purchase.InvoiceNumber">
+            
             <label for="Phone">Phone:</label>
-            <input type="text" id="Phone" name="Phone">
-
+            <input type="text" id="Phone" name="Phone" asp-for="@Model.Purchase.TotalAmount">
+            
             <label for="Email">Email</label>
-            <input type="text" id="Email" name="Email">
-
+            <input type="text" id="Email" name="Email" asp-for="@Model.Purchase.Date">
+            
             <label for="confirmEmail">Confirm Email:</label>
             <input type="text" id="confirmEmail" name="confirmEmail">
         </form>
