@@ -64,6 +64,7 @@ input[type="text"] {
 }
 
 .display-4{
+  margin-top: 50px;
   font-family: Arial, serif;
   color: #0a58ca;
 }
@@ -76,22 +77,25 @@ input[type="text"] {
   
 }
 .navbar-nav {
+  background-color: #0a58ca;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #fff;
 }
 
 .nav-item{
+  font-family: Arial, serif;
+  color: #ffffff;
   float: left;
   display: block;
   text-align: center;
   padding: 14px 14px;
 }
 .nav-item:hover{
-  background-color: #009688; ;
+  background-color: #ffffff; ;
 }
+
 
 
 
