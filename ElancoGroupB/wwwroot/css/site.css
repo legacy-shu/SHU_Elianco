@@ -96,6 +96,14 @@ input[type="text"] {
   background-color: #ffffff; ;
 }
 
+.text-center{
+  border-top: 1px solid #000;
+  border-top-width: thick;
+  border-top-color: #0f7864;
+  border-bottom:1px solid #000;
+  border-bottom-color: #0f7864;
+  border-bottom-width: thick;
+}
 
 
 
