@@ -261,15 +261,41 @@
         <img src="images/imaage2.png" alt="footer image" style="width:100%;">
     </div>
 </div>
+</body>
+</html>
+
+<style type="text/css">
+
+    .modal {
+        position: fixed;
+        z-index: 998;
+        height: 100% !important;
+        width: 100% !important;
+        top: 0;
+        display: block;
+        background-color: Black !important;
+        filter: grayscale(100%);
+        opacity: 0.6;
+    }
+
+    .loading {
+        font-family: Arial;
+        font-size: 10pt;
+        border: 5px solid #67CFF5;
+        width: 200px;
+        height: 100px;
+        display: none;
+        position: fixed;
+        background-color: White;
+        z-index: 999;
+    }
+</style>
 
 <div class="loading" align="center">
     Loading. Please wait.<br />
     <br />
     <img src="https://www.aspsnippets.com/demos/loader.gif" alt="" />
 </div>
-
-</body>
-</html>
 
 <style type="text/css">
 
@@ -305,16 +331,15 @@
     <script type="text/javascript">
         var modal, loading;
         function ShowProgress() {
-            // modal = document.createElement("DIV");
-            // modal.className = "modal";
-            // document.body.appendChild(modal);
-            // loading = document.getElementsByClassName("loading")[0];
-            // loading.style.display = "block";
-            // var top = Math.max(window.innerHeight / 2 - loading.offsetHeight / 2, 0);
-            // var left = Math.max(window.innerWidth / 2 - loading.offsetWidth / 2, 0);
-            // loading.style.top = top + "px";
-            // loading.style.left = left + "px";
-            
+            modal = document.createElement("DIV");
+            modal.className = "modal";
+            document.body.appendChild(modal);
+            loading = document.getElementsByClassName("loading")[0];
+            loading.style.display = "block";
+            var top = Math.max(window.innerHeight / 2 - loading.offsetHeight / 2, 0);
+            var left = Math.max(window.innerWidth / 2 - loading.offsetWidth / 2, 0);
+            loading.style.top = top + "px";
+            loading.style.left = left + "px";
         };
 
         function HideProgress() {
@@ -330,7 +355,7 @@
                 //and then, in the Ajax success function, call the HideProgress function to hide the loading image.
                 setTimeout(function () {
                     HideProgress();
-                }, 50000);
+                }, 500000);
             });
         });
     </script> 
