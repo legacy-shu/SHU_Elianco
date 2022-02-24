@@ -61,31 +61,59 @@
                 <div class="accordion-body">
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
-                        <input type="text" class="form-control" placeholder="Invoice code" id="inputDefault" asp-for="@Model.Purchase.InvoiceNumber">
+                        <input type="text" class="form-control" placeholder="Invoice code" id="inputDefault" required="required" asp-for="@Model.Purchase.InvoiceNumber">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
                         <input type="text" class="form-control" placeholder="Date of issue" id="inputDefault" asp-for="@Model.Purchase.Date">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
                         <input type="text" class="form-control" placeholder="Total amount" id="inputDefault" asp-for="@Model.Purchase.TotalAmount">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
                         <input type="text" class="form-control" placeholder="Clinic name" id="inputDefault" asp-for="@Model.Purchase.Clinic.Name">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
                         <input type="text" class="form-control" placeholder="Clinic address" id="inputDefault" asp-for="@Model.Purchase.Clinic.Address">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
                         <input type="text" class="form-control" placeholder="Clinic zip code" id="inputDefault" asp-for="@Model.Purchase.Clinic.Zip">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                     <div class="form-group">
                         <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
                         <input type="text" class="form-control" placeholder="Pet's name" id="inputDefault" asp-for="@Model.Purchase.Pet.Name">
+                        <style type="text/css">
+                            input:required:invalid,input:focus:invalid{background-color: #f5c2c7; background-position: right top; background-repeat: no-repeat;}
+                            input:required:valid{background-color: #e9f6ef; background-position: right top; background-repeat: no-repeat;}
+                        </style>
                     </div>
                 </div>
             </div>
