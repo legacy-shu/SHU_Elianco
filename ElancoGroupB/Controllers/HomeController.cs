@@ -20,20 +20,21 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Index(IFormFile imagepath)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Index([Bind("Photo")]UserViewModel model)
     {
         
-        if (imagepath == null)
+        if (model.Photo == null)
         {
             return View();
         }
 
         // Combines two strings into a path.
-        var filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{imagepath.FileName}";
+        var filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{model.Photo.FileName}";
         Console.WriteLine(filepath);
         using (FileStream fs = System.IO.File.Create(filepath))
         {
-            imagepath.CopyTo(fs);
+            model.Photo.CopyTo(fs);
             fs.Flush();
         }
         
@@ -47,9 +48,9 @@ public class HomeController : Controller
         Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber}': ");
         Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount}': ");
         Console.WriteLine($"Date: '{extractedModel.Date}': ");
-        var model = new UserViewModel();
-        model.Purchase = extractedModel;
-        return View(model);
+        var viewModel = new UserViewModel();
+        viewModel.Purchase = extractedModel;
+        return View(viewModel);
     }
 
     public IActionResult Privacy()

@@ -27,15 +27,20 @@
     <h2>Obtaining A Rebate</h2>
     <br/>
 </div>
+
 <div class="container">
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <input class="btn btn-outline-secondary" type="file" name="imagepath" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
-            <br/>
+            <div class="col-auto">
+                <div class="custom-file">
+                    <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
+                    <span asp-validation-for="Photo"></span>
+                </div>
+            </div>
         </div>
         <br/>
         <div class="form-group">
-            <input class="btn btn-outline-secondary" asp-page-handler="Upload" type="submit" value="Extract Data"/>
+            <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data"/>
         </div>
         <br/>
     </form>
