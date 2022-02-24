@@ -40,10 +40,13 @@
         <br/>
         <div class="form-group">
             <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data"/>
-            <div class="alert alert-dismissible alert-success">
-              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-              <strong>Well done!</strong> Thanks that has successfully Extracted <a href="#" class="alert-link">this important alert message</a>.
-            </div>
+            @if (Model != null)
+            {
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Well done!</strong> Thanks that has successfully Extracted
+                </div>
+            }
         </div>
         <br/>
     </form>
@@ -58,34 +61,159 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
-                        <input type="text" class="form-control" placeholder="Invoice code" asp-for="@Model.Purchase.InvoiceNumber">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
-                        <input type="text" class="form-control" placeholder="Date of issue" asp-for="@Model.Purchase.Date">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
-                        <input type="text" class="form-control" placeholder="Total amount" asp-for="@Model.Purchase.TotalAmount">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
-                        <input type="text" class="form-control" placeholder="Clinic name" asp-for="@Model.Purchase.Clinic.Name">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
-                        <input type="text" class="form-control" placeholder="Clinic address" asp-for="@Model.Purchase.Clinic.Address">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
-                        <input type="text" class="form-control" placeholder="Clinic zip code" asp-for="@Model.Purchase.Clinic.Zip">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
-                        <input type="text" class="form-control" placeholder="Pet's name" asp-for="@Model.Purchase.Pet.Name">
-                    </div>
+                    
+                    @if (Model != null)
+                    {
+                        @if (Model.Purchase.InvoiceNumber.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Invoice code</label>
+                                <input type="text" asp-for="@Model.Purchase.InvoiceNumber" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Invoice code</label>
+                                <input type="text" asp-for="@Model.Purchase.InvoiceNumber" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        
+                        @if (Model.Purchase.Date.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Date of issue</label>
+                                <input type="text" asp-for="@Model.Purchase.Date" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Date of issue</label>
+                                <input type="text" asp-for="@Model.Purchase.Date" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        
+                        @if (Model.Purchase.TotalAmount.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Total amount</label>
+                                <input type="text" asp-for="@Model.Purchase.TotalAmount" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Total amount</label>
+                                <input type="text" asp-for="@Model.Purchase.TotalAmount" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        
+                        @if (Model.Purchase.Clinic.Name.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Clinic name</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Name" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Clinic name</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Name" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        
+                        @if (Model.Purchase.Clinic.Address.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Clinic address</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Address" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Clinic address</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Address" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        
+                        @if (Model.Purchase.Clinic.Zip.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Clinic zip code</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Zip" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Clinic zip code</label>
+                                <input type="text" asp-for="@Model.Purchase.Clinic.Zip" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                        @if (Model.Purchase.Pet.Name.Length > 0)
+                        {
+                            <div class="form-group has-success">
+                                <label class="form-label mt-4" for="inputValid">Pet's name</label>
+                                <input type="text" asp-for="@Model.Purchase.Pet.Name" class="form-control is-valid" id="inputValid">
+                                <div class="valid-feedback">Success! Extraced</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group has-danger">
+                                <label class="form-label mt-4" for="inputInvalid">Pet's name</label>
+                                <input type="text" asp-for="@Model.Purchase.Pet.Name" class="form-control is-invalid" id="inputInvalid">
+                                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
+                            <input type="text" class="form-control" placeholder="Invoice code" asp-for="@Model.Purchase.InvoiceNumber">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
+                            <input type="text" class="form-control" placeholder="Date of issue" asp-for="@Model.Purchase.Date">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
+                            <input type="text" class="form-control" placeholder="Total amount" asp-for="@Model.Purchase.TotalAmount">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
+                            <input type="text" class="form-control" placeholder="Clinic name" asp-for="@Model.Purchase.Clinic.Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
+                            <input type="text" class="form-control" placeholder="Clinic address" asp-for="@Model.Purchase.Clinic.Address">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
+                            <input type="text" class="form-control" placeholder="Clinic zip code" asp-for="@Model.Purchase.Clinic.Zip">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
+                            <input type="text" class="form-control" placeholder="Pet's name" asp-for="@Model.Purchase.Pet.Name">
+                        </div>
+                    }
+
                 </div>
             </div>
             <div class="accordion-item">

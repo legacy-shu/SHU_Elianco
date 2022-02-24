@@ -9,5 +9,5 @@ public class UserViewModel
     public IFormFile Photo { get; set; }
     
     [BindNever]
-    public Purchase Purchase { get; set; }
+    public Purchase? Purchase { get; set; }
 }
