@@ -1,4 +1,4 @@
-﻿@model Purchase
+﻿@model UserViewModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,29 +9,15 @@
     <title>Document</title>
 </head>
 
-
 <body>
-<div class="banner">
-    <div class="bgImage">
-       <img src="images/imaage2.png" alt="bg" style="width:100%;"> 
-    </div>
-    @{
-        ViewData["Title"] = "Instructions";
-    }
-  
-    
-    <div class="text-center">
-        <h3>To obtain a rebate, please upload a picture of your Receipt or Invouce via a device<br/>Once this step has been completed please upload the image by 'clicking submit'. 
-           <br/> This will extract key detils from your Receipt or invoice, this can also be edited if there are errors from extraction. </h3>
-    </div>
-    
-     <div class="footerImage">
-        <img src="images/image3.png" alt="footer image" style="width:100%;">
-     </div>
- 
 
+@{
+    ViewData["Title"] = "Instructions";
+}
+<div class="text-center">
+    <h1 class="display-4">Instructions</h1>
+    <p class="display-5">Welcome To the Elanco Rebate Processes.</p>
+    <p>To obtain a rebate, click on the upload button and make sure the file is uploaded. <br/>Click on the "Extract Data" button and wait for the file to be processed. </p>
+    <br/>
 </div>
 </body>
-</html>
-
-
