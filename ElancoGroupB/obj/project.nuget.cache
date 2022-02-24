@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hMb9FiZxJTTjtv1JAy6eNjW1D//ghypM+p++MhM6RyCH5/7H/2LYE+ope21usOf02luTItbbdw1q0rcGDRakog==",
+  "dgSpecHash": "93gnkR4aGopdNrsYBHor5GApxhcnqh8h5/HpoC0AbqoTwy5Ozv4FSVRVG9V7f/9iXiFyC86cIg93kWgBw+oH6w==",
   "success": true,
-  "projectFilePath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+  "projectFilePath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
   "expectedPackageFiles": [
     "/Users/lundaljung/.nuget/packages/azure.ai.formrecognizer/4.0.0-beta.3/azure.ai.formrecognizer.4.0.0-beta.3.nupkg.sha512",
     "/Users/lundaljung/.nuget/packages/azure.core/1.22.0/azure.core.1.22.0.nupkg.sha512",

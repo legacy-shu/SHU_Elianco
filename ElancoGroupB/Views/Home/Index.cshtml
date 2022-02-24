@@ -39,7 +39,7 @@
         </div>
         <br/>
         <div class="form-group">
-            <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data"/>
+            <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data" id="uploadimage"/>
             @if (Model != null)
             {
                 <div class="alert alert-dismissible alert-success">
@@ -261,7 +261,79 @@
         <img src="images/imaage2.png" alt="footer image" style="width:100%;">
     </div>
 </div>
+
+<div class="loading" align="center">
+    Loading. Please wait.<br />
+    <br />
+    <img src="https://www.aspsnippets.com/demos/loader.gif" alt="" />
+</div>
+
 </body>
 </html>
+
+<style type="text/css">
+
+    .modal {
+        position: fixed;
+        z-index: 998;
+        height: 100% !important;
+        width: 100% !important;
+        top: 0;
+        display: block;
+        background-color: Black !important;
+        filter: grayscale(100%);
+        opacity: 0.6;
+    }
+
+    .loading {
+        font-family: Arial;
+        font-size: 10pt;
+        border: 5px solid #67CFF5;
+        width: 200px;
+        height: 100px;
+        display: none;
+        position: fixed;
+        background-color: White;
+        z-index: 999;
+    }
+</style>
+
+
+@section Scripts{
+    @*Since I have already added the JQuery reference in the layout page, there is no need to add JQuery reference here.
+        If you didn't add the JQuery reference before, please remember to add the JQuery reference first*@
+    <script type="text/javascript">
+        var modal, loading;
+        function ShowProgress() {
+            // modal = document.createElement("DIV");
+            // modal.className = "modal";
+            // document.body.appendChild(modal);
+            // loading = document.getElementsByClassName("loading")[0];
+            // loading.style.display = "block";
+            // var top = Math.max(window.innerHeight / 2 - loading.offsetHeight / 2, 0);
+            // var left = Math.max(window.innerWidth / 2 - loading.offsetWidth / 2, 0);
+            // loading.style.top = top + "px";
+            // loading.style.left = left + "px";
+            
+        };
+
+        function HideProgress() {
+            document.body.removeChild(modal);
+            loading.style.display = "none";
+        };
+        $(function () {
+            $("#uploadimage").click(function () {
+                //show the loading image
+                ShowProgress();
+
+                //using JQuery ajax to call the event handler and login,
+                //and then, in the Ajax success function, call the HideProgress function to hide the loading image.
+                setTimeout(function () {
+                    HideProgress();
+                }, 50000);
+            });
+        });
+    </script> 
+}
 
 
