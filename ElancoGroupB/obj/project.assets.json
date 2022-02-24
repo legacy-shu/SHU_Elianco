@@ -346,26 +346,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\haide\\.nuget\\packages\\": {}
+    "/Users/lundaljung/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco2\\ElancoGroupB\\ElancoGroupB.csproj",
+      "projectUniqueName": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
       "projectName": "ElancoGroupB",
-      "projectPath": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco2\\ElancoGroupB\\ElancoGroupB.csproj",
-      "packagesPath": "C:\\Users\\haide\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\haide\\RiderProjects\\SHU_Elianco2\\ElancoGroupB\\obj\\",
+      "projectPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+      "packagesPath": "/Users/lundaljung/.nuget/packages/",
+      "outputPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\haide\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/lundaljung/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -407,7 +405,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }
