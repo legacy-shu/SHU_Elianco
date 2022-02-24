@@ -1,24 +1,25 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "93gnkR4aGopdNrsYBHor5GApxhcnqh8h5/HpoC0AbqoTwy5Ozv4FSVRVG9V7f/9iXiFyC86cIg93kWgBw+oH6w==",
   "success": true,
   "projectFilePath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
-=======
-  "dgSpecHash": "LIaPlrODcgO9P6YvgCICbEQmoZ10eLQOgShV/4AAv4YAA1dQbU8oasj0Gt9cYOwrr1nZhuvg5rwrm2z+Z+U4QQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
->>>>>>> 8419dc4e546b1201cff6b8aabf5d607be3d54180
   "expectedPackageFiles": [
-    "C:\\Users\\aliha\\.nuget\\packages\\azure.ai.formrecognizer\\4.0.0-beta.3\\azure.ai.formrecognizer.4.0.0-beta.3.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\azure.core\\1.22.0\\azure.core.1.22.0.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
-    "C:\\Users\\aliha\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "/Users/lundaljung/.nuget/packages/azure.ai.formrecognizer/4.0.0-beta.3/azure.ai.formrecognizer.4.0.0-beta.3.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/azure.core/1.22.0/azure.core.1.22.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.diagnostics.diagnosticsource/4.6.0/system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.text.encodings.web/4.7.2/system.text.encodings.web.4.7.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -346,34 +346,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aliha\\.nuget\\packages\\": {}
+    "/Users/lundaljung/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
       "projectName": "ElancoGroupB",
       "projectPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
       "packagesPath": "/Users/lundaljung/.nuget/packages/",
       "outputPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/",
-=======
-      "projectUniqueName": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
-      "projectName": "ElancoGroupB",
-      "projectPath": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\ElancoGroupB.csproj",
-      "packagesPath": "C:\\Users\\aliha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aliha\\RiderProjects\\SHU_Elianco\\ElancoGroupB\\obj\\",
->>>>>>> 8419dc4e546b1201cff6b8aabf5d607be3d54180
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aliha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/lundaljung/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -415,8 +405,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
