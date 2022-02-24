@@ -7,4 +7,7 @@ public class Purchase
     public string TotalAmount { get; set; } = String.Empty;
     public string InvoiceNumber { get; set; } = String.Empty;
     public string Date { get; set; } = String.Empty;
+
+    public int dataCount { get; set; }
+
 }

@@ -6,8 +6,9 @@ namespace ElancoGroupB.Models;
 public class UserViewModel
 {
     [Required]
-    public IFormFile Photo { get; set; }
+    public IFormFile? Photo { get; set; }
     
     [BindNever]
     public Purchase? Purchase { get; set; }
+
 }

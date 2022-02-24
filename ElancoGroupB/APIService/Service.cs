@@ -36,6 +36,7 @@ public class Service
             {
                 string fieldName = fieldKvp.Key;
                 DocumentField field = fieldKvp.Value;
+                if (field.Content.Length > 0) extractedModel.dataCount++;
                 // Console.WriteLine($"Field '{fieldName}': ");
                 // Console.WriteLine($"  Content: '{field.Content}'");
                 // Console.WriteLine($"  Confidence: '{field.Confidence}'");

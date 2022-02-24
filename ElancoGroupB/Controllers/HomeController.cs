@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using ElancoGroupB.Models;
 using Microsoft.Extensions.FileProviders;
@@ -8,9 +9,10 @@ namespace ElancoGroupB.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly INotyfService _notyf;
+    public HomeController(ILogger<HomeController> logger, INotyfService notyf)
     {
+        _notyf = notyf;
         _logger = logger;
     }
     
@@ -48,16 +50,27 @@ public class HomeController : Controller
         Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber}': ");
         Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount}': ");
         Console.WriteLine($"Date: '{extractedModel.Date}': ");
+        Console.WriteLine(extractedModel.dataCount);
+
         var viewModel = new UserViewModel();
         viewModel.Purchase = extractedModel;
+        
+        switch (extractedModel.dataCount)
+        {
+            case 0:
+                _notyf.Error("It has been failed extracting data",3);
+                break;
+            case 8:
+                _notyf.Success("It has been succeed extracting data",3);
+                break;
+            default:
+                _notyf.Warning("It's been succeed but some was missing",3);
+                break;
+        }
+
         return View(viewModel);
     }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
