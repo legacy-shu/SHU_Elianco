@@ -7,7 +7,6 @@ public class Service
 {
     public static async Task<Purchase> RequestAnalyzeDocumentAsync(string filePath)
     {
-        Console.WriteLine(filePath);
         string endpoint = "https://form-recognizer-elanco.cognitiveservices.azure.com/";
         string apiKey = "ad92cf9cf82a49efbbc7b51d7a8bdfe2";
         var credential = new AzureKeyCredential(apiKey);
@@ -37,9 +36,6 @@ public class Service
                 string fieldName = fieldKvp.Key;
                 DocumentField field = fieldKvp.Value;
                 if (field.Content.Length > 0) extractedModel.dataCount++;
-                // Console.WriteLine($"Field '{fieldName}': ");
-                // Console.WriteLine($"  Content: '{field.Content}'");
-                // Console.WriteLine($"  Confidence: '{field.Confidence}'");
                 switch (fieldName)
                 {
                     case "clinic_name":
