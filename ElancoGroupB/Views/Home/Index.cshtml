@@ -190,6 +190,48 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
+            
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">Products</label>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        @if (String.IsNullOrEmpty(Model.Products.First().Description?["value"]) == false)
+                        {
+                            <th>Description</th>
+                        }
+                        @if (String.IsNullOrEmpty(Model.Products.First().Quantity?["value"]) == false)
+                        {
+                            <th>Quantity</th>
+                        }
+                        @if (String.IsNullOrEmpty(Model.Products.First().Amount?["value"]) == false)
+                        {
+                            <th>Amount</th>
+                        }
+                    </tr>
+                    </thead>
+        
+                    <tbody>
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr class="table-active">
+                            @if (String.IsNullOrEmpty(item.Description?["value"]) == false)
+                            {
+                                <th>@item.Description["value"], @item.Description["confidence"]</th>
+                            }
+                            @if (String.IsNullOrEmpty(item.Quantity?["value"]) == false)
+                            {
+                                <td>@item.Quantity["value"], @item.Quantity["confidence"]</td>
+                            }
+                            @if (String.IsNullOrEmpty(item.Amount?["value"]) == false)
+                            {
+                                <td>@item.Amount["value"], @item.Amount["confidence"]</td>
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {
@@ -264,14 +306,19 @@
         </div>
     </div>
 </div>
+
 </div>
+
 </div>
+
+
 <div class="footerImage">
     <img src="images/imaage2.png" alt="footer image" style="width:100%;">
 </div>
 </div>
 </body>
 </html>
+
 
 @section Scripts{
     <script type="text/javascript">

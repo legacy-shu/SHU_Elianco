@@ -11,4 +11,6 @@ public class UserViewModel
     [BindNever]
     public Purchase? Purchase { get; set; }
 
+    public IEnumerable<Item>? Products { get; set; }
+
 }

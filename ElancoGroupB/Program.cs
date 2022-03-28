@@ -1,4 +1,5 @@
 using AspNetCoreHero.ToastNotification;
+using ElancoGroupB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,17 +1,111 @@
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.FormRecognizer;
+using Azure.AI.FormRecognizer.Models;
 
 namespace ElancoGroupB.Models;
 
 public class Service
 {
-    public static async Task<Purchase> RequestAnalyzeDocumentAsync(string filePath)
+    private readonly string _apiKey;
+    private readonly string _endpoint;
+    public Service(string apiKey, string endpoint)
     {
-        string endpoint = "https://form-recognizer-elanco.cognitiveservices.azure.com/";
-        string apiKey = "ad92cf9cf82a49efbbc7b51d7a8bdfe2";
-        var credential = new AzureKeyCredential(apiKey);
-        var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+        _apiKey = apiKey;
+        _endpoint = endpoint;
+        Console.WriteLine(_apiKey);
+        Console.WriteLine(_endpoint);
+    }
 
+    public async Task<IEnumerable<Item>> RequestReceiptModelAsync(string filePath)
+    {
+        var credential = new AzureKeyCredential(_apiKey);
+        var client = new FormRecognizerClient(new Uri(_endpoint), credential);
+        
+        using var stream = new FileStream(filePath, FileMode.Open);
+        var options = new RecognizeInvoicesOptions() { Locale = "en-US" };
+
+        RecognizeInvoicesOperation operation = await client.StartRecognizeInvoicesAsync(stream, options);
+        Response<RecognizedFormCollection> operationResponse = await operation.WaitForCompletionAsync();
+        RecognizedFormCollection invoices = operationResponse.Value;
+  
+        RecognizedForm invoice = invoices.Single();
+
+        List<Item> result = new List<Item>();
+        
+        if (invoice.Fields.TryGetValue("Items", out FormField itemsField))
+        {
+            if (itemsField.Value.ValueType == FieldValueType.List)
+            {
+                foreach (FormField itemField in itemsField.Value.AsList())
+                {
+                    Console.WriteLine("Item:");
+                    Item item = new Item();
+
+                    if (itemField.Value.ValueType == FieldValueType.Dictionary)
+                    {
+                        IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+
+                        if (itemFields.TryGetValue("Description", out FormField itemDescriptionField))
+                        {
+                            if (itemDescriptionField.Value.ValueType == FieldValueType.String)
+                            {
+                                string itemDescription = itemDescriptionField.Value.AsString();
+
+                                Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
+                                item.Description = new Dictionary<string, string?>()
+                                {
+                                    {"value",itemDescription},
+                                    {"confidence", itemDescriptionField.Confidence.ToString()},
+                                };
+                            }
+                        }
+
+                        if (itemFields.TryGetValue("Quantity", out FormField itemQuantityField))
+                        {
+                            if (itemQuantityField.Value.ValueType == FieldValueType.Float)
+                            {
+                                float quantityAmount = itemQuantityField.Value.AsFloat();
+
+                                Console.WriteLine($"  Quantity: '{quantityAmount}', with confidence {itemQuantityField.Confidence}");
+                                item.Quantity = new Dictionary<string, string?>()
+                                {
+                                    {"value",quantityAmount.ToString()},
+                                    {"confidence", itemQuantityField.Confidence.ToString()},
+                                };
+                            }
+                        }
+
+                        if (itemFields.TryGetValue("Amount", out FormField itemAmountField))
+                        {
+                            if (itemAmountField.Value.ValueType == FieldValueType.Float)
+                            {
+                                float itemAmount = itemAmountField.Value.AsFloat();
+
+                                Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
+                                item.Amount = new Dictionary<string, string?>()
+                                {
+                                    {"value",itemAmount.ToString()},
+                                    {"confidence", itemAmountField.Confidence.ToString()},
+                                };
+                            }
+                        }
+                    }
+
+                    result.Add(item);
+                }
+            }
+        }
+
+        return result.ToList();
+    }
+
+
+    public async Task<Purchase> RequestCustom1ModelAsync(string filePath)
+    {
+       
+        var credential = new AzureKeyCredential(_apiKey);
+        var client = new DocumentAnalysisClient(new Uri(_endpoint), credential);
         string modelId = "custom1"; 
 
         using var stream = new FileStream(filePath, FileMode.Open);
