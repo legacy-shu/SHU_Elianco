@@ -42,15 +42,15 @@ public class HomeController : Controller
         
         var extractedModel = await Service.RequestAnalyzeDocumentAsync(filepath);
         System.IO.File.Delete(filepath);
-        Console.WriteLine($"Clinic Name: '{extractedModel.Clinic.Name}': ");
-        Console.WriteLine($"Clinic Address: '{extractedModel.Clinic.Address}': ");
-        Console.WriteLine($"Clinic Phone: '{extractedModel.Clinic.Phone}': ");
-        Console.WriteLine($"Clinic Zip: '{extractedModel.Clinic.Zip}': ");
-        Console.WriteLine($"Pet Name: '{extractedModel.Pet.Name}': ");
-        Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber}': ");
-        Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount}': ");
-        Console.WriteLine($"Date: '{extractedModel.Date}': ");
-        Console.WriteLine(extractedModel.dataCount);
+        // Console.WriteLine($"Clinic Name: '{extractedModel.Clinic.Name["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Clinic Address: '{extractedModel.Clinic.Address["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Clinic Phone: '{extractedModel.Clinic.Phone["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Clinic Zip: '{extractedModel.Clinic.Zip["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Pet Name: '{extractedModel.Pet.Name["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine($"Date: '{extractedModel.Date["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
+        // Console.WriteLine(extractedModel.dataCount);
 
         var viewModel = new UserViewModel();
         viewModel.Purchase = extractedModel;

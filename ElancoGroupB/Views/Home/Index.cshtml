@@ -73,120 +73,120 @@
                     
         @if (Model != null)
         {
-            @if (Model.Purchase.InvoiceNumber.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.InvoiceNumber?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Invoice code</label>
-                    <input type="text" asp-for="@Model.Purchase.InvoiceNumber" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.InvoiceNumber["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.InvoiceNumber["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Invoice code</label>
-                    <input type="text" asp-for="@Model.Purchase.InvoiceNumber" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.InvoiceNumber["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
                         
-            @if (Model.Purchase.Date.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.Date?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Date of issue</label>
-                    <input type="text" asp-for="@Model.Purchase.Date" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.Date["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.Date["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Date of issue</label>
-                    <input type="text" asp-for="@Model.Purchase.Date" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.Date["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
                         
-            @if (Model.Purchase.TotalAmount.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.TotalAmount?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Total amount</label>
-                    <input type="text" asp-for="@Model.Purchase.TotalAmount" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.TotalAmount["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.TotalAmount["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Total amount</label>
-                    <input type="text" asp-for="@Model.Purchase.TotalAmount" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.TotalAmount["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
                         
-            @if (Model.Purchase.Clinic.Name.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.Clinic.Name?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic name</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Name" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Name["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.Clinic.Name["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Clinic name</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Name" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Name["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
                         
-            @if (Model.Purchase.Clinic.Address.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.Clinic.Address?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic address</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Address" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Address["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.Clinic.Address["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Clinic address</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Address" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Address["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
                         
-            @if (Model.Purchase.Clinic.Zip.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.Clinic.Zip?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic zip code</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Zip" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Zip["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.Clinic.Zip["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Clinic zip code</label>
-                    <input type="text" asp-for="@Model.Purchase.Clinic.Zip" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.Clinic.Zip["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-            @if (Model.Purchase.Pet.Name.Length > 0)
+            @if (String.IsNullOrEmpty(Model.Purchase.Pet.Name?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Pet's name</label>
-                    <input type="text" asp-for="@Model.Purchase.Pet.Name" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">Success! Extraced</div>
+                    <input type="text" asp-for="@Model.Purchase.Pet.Name["value"]" class="form-control is-valid" id="inputValid">
+                    <div class="valid-feedback">@Model.Purchase.Pet.Name["confidence"]</div>
                 </div>
             }
             else
             {
                 <div class="form-group has-danger">
                     <label class="form-label mt-4" for="inputInvalid">Pet's name</label>
-                    <input type="text" asp-for="@Model.Purchase.Pet.Name" class="form-control is-invalid" id="inputInvalid">
+                    <input type="text" asp-for="@Model.Purchase.Pet.Name["value"]" class="form-control is-invalid" id="inputInvalid">
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
@@ -195,31 +195,31 @@
         {
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
-                <input type="text" class="form-control" placeholder="Invoice code" asp-for="@Model.Purchase.InvoiceNumber">
+                <input type="text" class="form-control" placeholder="Invoice code" asp-for="@Model.Purchase.InvoiceNumber["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
-                <input type="text" class="form-control" placeholder="Date of issue" asp-for="@Model.Purchase.Date">
+                <input type="text" class="form-control" placeholder="Date of issue" asp-for="@Model.Purchase.Date["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
-                <input type="text" class="form-control" placeholder="Total amount" asp-for="@Model.Purchase.TotalAmount">
+                <input type="text" class="form-control" placeholder="Total amount" asp-for="@Model.Purchase.TotalAmount["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
-                <input type="text" class="form-control" placeholder="Clinic name" asp-for="@Model.Purchase.Clinic.Name">
+                <input type="text" class="form-control" placeholder="Clinic name" asp-for="@Model.Purchase.Clinic.Name["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
-                <input type="text" class="form-control" placeholder="Clinic address" asp-for="@Model.Purchase.Clinic.Address">
+                <input type="text" class="form-control" placeholder="Clinic address" asp-for="@Model.Purchase.Clinic.Address["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
-                <input type="text" class="form-control" placeholder="Clinic zip code" asp-for="@Model.Purchase.Clinic.Zip">
+                <input type="text" class="form-control" placeholder="Clinic zip code" asp-for="@Model.Purchase.Clinic.Zip["value"]">
             </div>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
-                <input type="text" class="form-control" placeholder="Pet's name" asp-for="@Model.Purchase.Pet.Name">
+                <input type="text" class="form-control" placeholder="Pet's name" asp-for="@Model.Purchase.Pet.Name["value"]">
             </div>
         }
 

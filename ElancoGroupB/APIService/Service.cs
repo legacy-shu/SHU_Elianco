@@ -39,28 +39,60 @@ public class Service
                 switch (fieldName)
                 {
                     case "clinic_name":
-                        extractedModel.Clinic.Name = field.Content;
+                        extractedModel.Clinic.Name = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "clinic_address":
-                        extractedModel.Clinic.Address = field.Content;
+                        extractedModel.Clinic.Address = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "clinic_zip_code":
-                        extractedModel.Clinic.Zip = field.Content;
+                        extractedModel.Clinic.Zip = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "clinic_phone_number":
-                        extractedModel.Clinic.Phone = field.Content;
+                        extractedModel.Clinic.Phone = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "pet_name":
-                        extractedModel.Pet.Name = field.Content;
+                        extractedModel.Pet.Name = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "invoice_number":
-                        extractedModel.InvoiceNumber = field.Content;
+                        extractedModel.InvoiceNumber = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "total_amount":
-                        extractedModel.TotalAmount = field.Content;
+                        extractedModel.TotalAmount = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                     case "date_of_service":
-                        extractedModel.Date = field.Content;
+                        extractedModel.Date = new Dictionary<string, string?>()
+                        {
+                            {"value", field.Content},
+                            {"confidence", field.Confidence.ToString()},
+                        };
                         break;
                 }
             }

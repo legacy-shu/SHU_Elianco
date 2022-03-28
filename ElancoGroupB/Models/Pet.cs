@@ -2,5 +2,5 @@ namespace ElancoGroupB.Models;
 
 public class Pet
 {
-    public string Name { get; set; } = String.Empty;
+    public Dictionary<string, string?> Name { get; set; }
 }
