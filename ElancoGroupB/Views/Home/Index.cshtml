@@ -78,7 +78,7 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Invoice code</label>
                     <input type="text" asp-for="@Model.Purchase.InvoiceNumber["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.InvoiceNumber["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage @Model.Purchase.InvoiceNumber["confidence"]</div>
                 </div>
             }
             else
@@ -95,7 +95,7 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Date of issue</label>
                     <input type="text" asp-for="@Model.Purchase.Date["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.Date["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage = @Model.Purchase.Date["confidence"]</div>
                 </div>
             }
             else
@@ -112,7 +112,7 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Total amount</label>
                     <input type="text" asp-for="@Model.Purchase.TotalAmount["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.TotalAmount["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage = @Model.Purchase.TotalAmount["confidence"]</div>
                 </div>
             }
             else
@@ -129,7 +129,7 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic name</label>
                     <input type="text" asp-for="@Model.Purchase.Clinic.Name["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.Clinic.Name["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage @Model.Purchase.Clinic.Name["confidence"]</div>
                 </div>
             }
             else
@@ -140,13 +140,14 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
+            
                         
             @if (String.IsNullOrEmpty(Model.Purchase.Clinic.Address?["value"]) == false)
             {
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic address</label>
                     <input type="text" asp-for="@Model.Purchase.Clinic.Address["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.Clinic.Address["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage = @Model.Purchase.Clinic.Address["confidence"]</div>
                 </div>
             }
             else
@@ -163,7 +164,9 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Clinic zip code</label>
                     <input type="text" asp-for="@Model.Purchase.Clinic.Zip["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.Clinic.Zip["confidence"]</div>
+                    
+                     <div class="valid-feedback"> Confidence Percentage =  @Model.Purchase.Clinic.Zip["confidence"]</div>
+                   
                 </div>
             }
             else
@@ -179,7 +182,7 @@
                 <div class="form-group has-success">
                     <label class="form-label mt-4" for="inputValid">Pet's name</label>
                     <input type="text" asp-for="@Model.Purchase.Pet.Name["value"]" class="form-control is-valid" id="inputValid">
-                    <div class="valid-feedback">@Model.Purchase.Pet.Name["confidence"]</div>
+                    <div class="valid-feedback"> Confidence Percentage @Model.Purchase.Pet.Name["confidence"]</div>
                 </div>
             }
             else

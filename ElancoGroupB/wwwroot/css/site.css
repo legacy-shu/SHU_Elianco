@@ -130,6 +130,15 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+.good{
+  color: green;
+}
+.ok{
+  color: orange;
+}
+.bad{
+  color: red;
+}
 
 
 
