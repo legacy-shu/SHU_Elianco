@@ -8,9 +8,8 @@ public class UserViewModel
     [Required]
     public IFormFile? Photo { get; set; }
     
-    [BindNever]
-    public Purchase? Purchase { get; set; }
+    public Purchase Purchase { get; set; }
 
-    public IEnumerable<Item>? Products { get; set; }
+    public IEnumerable<Item> Products { get; set; }
 
 }

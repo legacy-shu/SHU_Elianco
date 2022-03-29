@@ -29,8 +29,9 @@ public class HomeController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index([Bind("Photo")]UserViewModel model)
+    public async Task<IActionResult> Index(UserViewModel model)
     {
+
         if (model.Photo == null)
         {
             return View();
@@ -52,32 +53,34 @@ public class HomeController : Controller
         
         System.IO.File.Delete(filepath);
         
-        // Console.WriteLine($"Clinic Name: '{extractedModel.Clinic.Name["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Clinic Address: '{extractedModel.Clinic.Address["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Clinic Phone: '{extractedModel.Clinic.Phone["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Clinic Zip: '{extractedModel.Clinic.Zip["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Pet Name: '{extractedModel.Pet.Name["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Invoice: '{extractedModel.InvoiceNumber["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Total Amount: '{extractedModel.TotalAmount["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine($"Date: '{extractedModel.Date["value"]}' confidence: {extractedModel.Clinic.Name["confidence"]} ");
-        // Console.WriteLine(extractedModel.dataCount);
-
         var viewModel = new UserViewModel();
         viewModel.Purchase = receiptCustomModel1;
         viewModel.Products = items;
-        
-        switch (receiptCustomModel1.dataCount)
+
+        if (receiptCustomModel1.dataCount == 8)
         {
-            case 0:
-                _notyf.Error("It has been failed extracting data",3);
-                break;
-            case 8:
-                _notyf.Success("It has been succeed extracting data",3);
-                break;
-            default:
-                _notyf.Warning("It's been succeed but some was missing",3);
-                break;
+            _notyf.Success("It has been succeed extracting data",3);
         }
+        else if (receiptCustomModel1.dataCount == 0)
+        {
+            _notyf.Error("It has been failed extracting data",3);
+        }
+        else
+        {
+            _notyf.Custom("It has been failed extracting data",3, backgroundColor:"yellow");
+        }
+      
+
+        Console.WriteLine(receiptCustomModel1.ClinicName?["value"] + ":" + receiptCustomModel1.ClinicName?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.Zip?["value"] + ":" + receiptCustomModel1.Zip?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.Address?["value"] + ":" + receiptCustomModel1.Address?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.Date?["value"] + ":" + receiptCustomModel1.Date?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.TotalAmount?["value"] + ":" + receiptCustomModel1.TotalAmount?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.PetName?["value"] + ":" + receiptCustomModel1.PetName?["confidence"]);
+        Console.WriteLine(receiptCustomModel1.Phone?["value"] + ":" + receiptCustomModel1.Phone?["confidence"]);
+        //Console.WriteLine(receiptCustomModel1.InvoiceNumber["value"] + ":" + receiptCustomModel1.InvoiceNumber["confidence"]);
+        Console.WriteLine("DataCount: "+receiptCustomModel1.dataCount);
+
 
         return View(viewModel);
     }

@@ -53,7 +53,7 @@ public class Service
                                 string itemDescription = itemDescriptionField.Value.AsString();
 
                                 Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
-                                item.Description = new Dictionary<string, string?>()
+                                item.Description = new Dictionary<string, string>()
                                 {
                                     {"value",itemDescription},
                                     {"confidence", itemDescriptionField.Confidence.ToString()},
@@ -68,7 +68,7 @@ public class Service
                                 float quantityAmount = itemQuantityField.Value.AsFloat();
 
                                 Console.WriteLine($"  Quantity: '{quantityAmount}', with confidence {itemQuantityField.Confidence}");
-                                item.Quantity = new Dictionary<string, string?>()
+                                item.Quantity = new Dictionary<string, string>()
                                 {
                                     {"value",quantityAmount.ToString()},
                                     {"confidence", itemQuantityField.Confidence.ToString()},
@@ -83,7 +83,7 @@ public class Service
                                 float itemAmount = itemAmountField.Value.AsFloat();
 
                                 Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
-                                item.Amount = new Dictionary<string, string?>()
+                                item.Amount = new Dictionary<string, string>()
                                 {
                                     {"value",itemAmount.ToString()},
                                     {"confidence", itemAmountField.Confidence.ToString()},
@@ -130,62 +130,76 @@ public class Service
                 string fieldName = fieldKvp.Key;
                 DocumentField field = fieldKvp.Value;
                 if (field.Content.Length > 0) extractedModel.dataCount++;
+                Console.WriteLine(fieldName + " : " + field.Content);
+                Console.WriteLine(fieldName + " : " + field.Confidence);
+                string content = "";
+                float confidence = 0;
+                if (!String.IsNullOrEmpty(field.Content))
+                {
+                    content = field.Content;
+                }
+
+                if (field.Confidence.HasValue)
+                {
+                    confidence = (float) field.Confidence;
+                }
+                
                 switch (fieldName)
                 {
                     case "clinic_name":
-                        extractedModel.Clinic.Name = new Dictionary<string, string?>()
+                        extractedModel.ClinicName = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "clinic_address":
-                        extractedModel.Clinic.Address = new Dictionary<string, string?>()
+                        extractedModel.Address = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "clinic_zip_code":
-                        extractedModel.Clinic.Zip = new Dictionary<string, string?>()
+                        extractedModel.Zip = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "clinic_phone_number":
-                        extractedModel.Clinic.Phone = new Dictionary<string, string?>()
+                        extractedModel.Phone = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "pet_name":
-                        extractedModel.Pet.Name = new Dictionary<string, string?>()
+                        extractedModel.PetName = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "invoice_number":
-                        extractedModel.InvoiceNumber = new Dictionary<string, string?>()
+                        extractedModel.InvoiceNumber = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "total_amount":
-                        extractedModel.TotalAmount = new Dictionary<string, string?>()
+                        extractedModel.TotalAmount = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                     case "date_of_service":
-                        extractedModel.Date = new Dictionary<string, string?>()
+                        extractedModel.Date = new Dictionary<string, string>()
                         {
-                            {"value", field.Content},
-                            {"confidence", field.Confidence.ToString()},
+                            {"value", content},
+                            {"confidence", confidence.ToString()},
                         };
                         break;
                 }
@@ -194,4 +208,45 @@ public class Service
 
         return extractedModel;
     }
+
+    public async Task<Product> RequestproductModelAsync(string filePath)
+    {
+        var credential = new AzureKeyCredential(_apiKey);
+        var client = new DocumentAnalysisClient(new Uri(_endpoint), credential);
+        string modelId = "product1"; 
+
+        using var stream = new FileStream(filePath, FileMode.Open);
+        
+        AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentAsync(modelId, stream);
+        
+        await operation.WaitForCompletionAsync();
+        
+        AnalyzeResult result = operation.Value;
+        
+        Console.WriteLine($"Document was analyzed with model with ID: {result.ModelId}");
+        
+        Product product = new Product();
+
+        foreach (AnalyzedDocument document in result.Documents)
+        {
+            Console.WriteLine($"Document of type: {document.DocType}");
+            foreach (KeyValuePair<string, DocumentField> fieldKvp in document.Fields)
+            {
+                string fieldName = fieldKvp.Key;
+                DocumentField field = fieldKvp.Value;
+                Console.WriteLine(fieldName);
+                Console.WriteLine(field.Content);
+                Console.WriteLine(field.Confidence);
+                product.Name = new Dictionary<string, string>()
+                {
+                    {"value", field.Content ?? ""},
+                    {"confidence", field.Confidence.ToString() ?? ""},
+                };
+            }
+        }
+
+        return product;
+    }
+
+    
 }
