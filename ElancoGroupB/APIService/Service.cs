@@ -237,7 +237,7 @@ public class Service
                 Console.WriteLine(fieldName);
                 Console.WriteLine(field.Content);
                 Console.WriteLine(field.Confidence);
-                product.Name = new Dictionary<string, string>()
+                product.Name = new Dictionary<string, string?>()
                 {
                     {"value", field.Content ?? ""},
                     {"confidence", field.Confidence.ToString() ?? ""},

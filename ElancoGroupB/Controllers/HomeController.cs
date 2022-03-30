@@ -78,19 +78,33 @@ public class HomeController : Controller
             // Console.WriteLine(receiptCustomModel1.Phone?["value"] + ":" + receiptCustomModel1.Phone?["confidence"]);
             // Console.WriteLine(receiptCustomModel1.InvoiceNumber["value"] + ":" + receiptCustomModel1.InvoiceNumber["confidence"]);
             // Console.WriteLine("DataCount: " + receiptCustomModel1.dataCount);
+
+            foreach (var item in items)
+            {
+                string? code = null;
+                if (item.Description?["value"].Length > 5)
+                {
+                    code = new Rebate().getRebateCode(item.Description?["value"]);
+                }
+
+                item.Code = code;
+            }
         }
         else
         {
             var product = await service.RequestproductModelAsync(filePath);
-            viewModel.Product = product;
-            if (product.Name?["value"].Length > 0)
+            
+            if (product.Name?["value"].Length > 4)
             {
                 _notyf.Success("It has been succeed extracting data",3);
+                product.Code = new Rebate().getRebateCode(product.Name["value"]);
             }
             else
             {
                 _notyf.Error("It has been failed extracting data",3);
             }
+            viewModel.Product = product;
+            Console.WriteLine($"CODE:{product.Code}");
         }
         
         System.IO.File.Delete(filePath);
