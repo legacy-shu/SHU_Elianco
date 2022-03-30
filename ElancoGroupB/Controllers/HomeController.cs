@@ -75,6 +75,8 @@ public class HomeController : Controller
             System.IO.File.Delete(productImagefilepath);
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("product:"  + viewModel.Product.Name["value"]);
+            var offerCode = new Rebate().getRebate(viewModel.Product.Name["value"]);
+            Console.WriteLine("offer code: "+offerCode);
         }
         
         if (receiptCustomModel1.dataCount == 8)
