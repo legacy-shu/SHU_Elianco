@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     @* <link rel="stylesheet" href="~/ElancoGroupB.styles.css" asp-append-version="true"/> *@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <script src="js/site.js"></script>
 </head>
 <body>
 <header>
@@ -18,14 +19,18 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div> <img class="logo" src="images/logo.png" alt="logo"> </div>
+            <div>
+                <a href="/ElancoGroupB/Views/Home/Index.cshtml">
+                   <img src="images/logo.png" alt="lg"> 
+                </a>
+            </div>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Instructions">Instruction</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Instructions">Instruction</a>
                     </li>
                 </ul>
             </div>
