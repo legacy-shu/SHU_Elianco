@@ -89,6 +89,7 @@ input[type="text"] {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: sticky;
 }
 
 .nav-item{
@@ -191,6 +192,9 @@ nav a {
   display: inline-block;
   font-size: 16px;
 }
+
+  
+
 
 
 

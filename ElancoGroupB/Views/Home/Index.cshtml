@@ -195,6 +195,10 @@
                         {
                             <th>Amount</th>
                         }
+                        @if (Model.Products.FirstOrDefault()?.Accuracy != null)
+                        {
+                            <th>Accuracy</th>
+                        }
                     </tr>
                     </thead>
 
@@ -216,6 +220,11 @@
                                  float.Parse(@item.Amount["confidence"]) > 0.5)
                             {
                                 <td>@item.Amount["value"]</td>
+                            }
+                            @if (String.IsNullOrEmpty(item.Accuracy?["Value"]) == false &&
+                                 float.Parse(@item.Accuracy["confidence"]) > 0.5)
+                            {
+                                <td>@item.Accuracy["value"]</td>
                             }
                         </tr>
                     }
