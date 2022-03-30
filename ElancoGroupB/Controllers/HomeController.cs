@@ -32,31 +32,51 @@ public class HomeController : Controller
     public async Task<IActionResult> Index(UserViewModel model)
     {
 
-        if (model.Photo == null)
+        if (model.ReceiptImage == null)
         {
             return View();
         }
 
+        string productImagefilepath = null;
+        if (model.ProductImage != null)
+        { 
+            productImagefilepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{model.ProductImage.FileName}";
+            using (FileStream fs = System.IO.File.Create(productImagefilepath))
+            {
+                model.ProductImage.CopyTo(fs);
+                fs.Flush();
+            }
+        }
+
         // Combines two strings into a path.
-        var filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{model.Photo.FileName}";
+        var receiptImagefilepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")).Root + $@"\{model.ReceiptImage.FileName}";
         
-        using (FileStream fs = System.IO.File.Create(filepath))
+        using (FileStream fs = System.IO.File.Create(receiptImagefilepath))
         {
-            model.Photo.CopyTo(fs);
+            model.ReceiptImage.CopyTo(fs);
             fs.Flush();
         }
 
         var service = new Service(_apiKey, _endpoint);
         
-        var receiptCustomModel1 = await service.RequestCustom1ModelAsync(filepath);
-        var items = await service.RequestReceiptModelAsync(filepath);
+        var receiptCustomModel1 = await service.RequestCustom1ModelAsync(receiptImagefilepath);
+        var items = await service.RequestReceiptModelAsync(receiptImagefilepath);
         
-        System.IO.File.Delete(filepath);
+        
+        System.IO.File.Delete(receiptImagefilepath);
         
         var viewModel = new UserViewModel();
         viewModel.Purchase = receiptCustomModel1;
         viewModel.Products = items;
-
+        
+        if (productImagefilepath != null)
+        {
+            viewModel.Product = await service.RequestproductModelAsync(productImagefilepath);
+            System.IO.File.Delete(productImagefilepath);
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("product:"  + viewModel.Product.Name["value"]);
+        }
+        
         if (receiptCustomModel1.dataCount == 8)
         {
             _notyf.Success("It has been succeed extracting data",3);
@@ -78,8 +98,9 @@ public class HomeController : Controller
         Console.WriteLine(receiptCustomModel1.TotalAmount?["value"] + ":" + receiptCustomModel1.TotalAmount?["confidence"]);
         Console.WriteLine(receiptCustomModel1.PetName?["value"] + ":" + receiptCustomModel1.PetName?["confidence"]);
         Console.WriteLine(receiptCustomModel1.Phone?["value"] + ":" + receiptCustomModel1.Phone?["confidence"]);
-        //Console.WriteLine(receiptCustomModel1.InvoiceNumber["value"] + ":" + receiptCustomModel1.InvoiceNumber["confidence"]);
+        Console.WriteLine(receiptCustomModel1.InvoiceNumber?["value"] + ":" + receiptCustomModel1.InvoiceNumber?["confidence"]);
         Console.WriteLine("DataCount: "+receiptCustomModel1.dataCount);
+       
 
 
         return View(viewModel);

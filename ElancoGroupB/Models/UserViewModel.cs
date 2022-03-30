@@ -6,10 +6,14 @@ namespace ElancoGroupB.Models;
 public class UserViewModel
 {
     [Required]
-    public IFormFile? Photo { get; set; }
+    public IFormFile? ReceiptImage { get; set; }
     
+    public IFormFile? ProductImage { get; set; }
+
     public Purchase Purchase { get; set; }
 
     public IEnumerable<Item> Products { get; set; }
+
+    public Product Product { get; set; }
 
 }

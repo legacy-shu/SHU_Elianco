@@ -766,11 +766,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+      "projectUniqueName": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
       "projectName": "ElancoGroupB",
-      "projectPath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
+      "projectPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
       "packagesPath": "/Users/lundaljung/.nuget/packages/",
-      "outputPath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/obj/",
+      "outputPath": "/Users/lundaljung/workspace/dotnet/SHU_Elianco/ElancoGroupB/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/lundaljung/.nuget/NuGet/NuGet.Config"

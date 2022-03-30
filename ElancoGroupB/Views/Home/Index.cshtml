@@ -26,7 +26,29 @@
         <br/>
     </div>
 
-
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-auto">
+                    <div class="custom-file">
+                        <input asp-for="ReceiptImage" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
+                        <span asp-validation-for="ReceiptImage" class="text-danger"></span>
+                    </div>
+                    <br/>
+                    <div class="custom-file">
+                        <input asp-for="ProductImage" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
+                        <span asp-validation-for="ProductImage" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data" id="uploadimage"/>
+            </div>
+            <br/>
+        </form>
+    </div>
+    
     <div class="container">
     <div class="accordion" id="accordionExample">
     <div class="accordion-item">
@@ -38,223 +60,207 @@
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
     <div class="accordion-body">
     
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <div class="col-auto">
-                    <div class="custom-file">
-                        <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
-                        <span asp-validation-for="Photo" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="form-group">
-                <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data" id="uploadimage"/>
-            </div>
-            <br/>
-        </form>
-    
     @if (Model != null)
+    {
+        @if (String.IsNullOrEmpty(Model.Purchase.InvoiceNumber?["value"]) == false &&
+             float.Parse(@Model.Purchase.InvoiceNumber["confidence"]) > 0.7)
         {
-            @if (String.IsNullOrEmpty(Model.Purchase.InvoiceNumber?["value"]) == false &&
-                 float.Parse(@Model.Purchase.InvoiceNumber["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Invoice code</label>
-                    <input type="text" asp-for="@Model.Purchase.InvoiceNumber["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Invoice code</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                                        
-            @if (String.IsNullOrEmpty(Model.Purchase.Date["value"]) == false &&
-                 float.Parse(@Model.Purchase.Date["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Date of issue</label>
-                    <input type="text" asp-for="@Model.Purchase.Date["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Date of issue</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                                        
-            @if (String.IsNullOrEmpty(Model.Purchase.TotalAmount["value"]) == false &&
-                 float.Parse(@Model.Purchase.TotalAmount["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Total amount</label>
-                    <input type="text" asp-for="@Model.Purchase.TotalAmount["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Total amount</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                                        
-            @if (String.IsNullOrEmpty(Model.Purchase.ClinicName["value"]) == false &&
-                 float.Parse(@Model.Purchase.ClinicName["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Clinic name</label>
-                    <input type="text" asp-for="@Model.Purchase.ClinicName["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Clinic name</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                            
-                                        
-            @if (String.IsNullOrEmpty(Model.Purchase.Address["value"]) == false &&
-                 float.Parse(@Model.Purchase.Address["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Clinic address</label>
-                    <input type="text" asp-for="@Model.Purchase.Address["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Clinic address</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                                        
-            @if (String.IsNullOrEmpty(Model.Purchase.Zip["value"]) == false &&
-                 float.Parse(@Model.Purchase.Zip["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Clinic zip code</label>
-                    <input type="text" asp-for="@Model.Purchase.Zip["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Clinic zip code</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-            
-            @if (String.IsNullOrEmpty(Model.Purchase.PetName["value"]) == false &&
-                 float.Parse(@Model.Purchase.PetName["confidence"]) > 0.7)
-            {
-                <div class="form-group has-success">
-                    <label class="form-label mt-4" for="inputValid">Pet's name</label>
-                    <input type="text" asp-for="@Model.Purchase.PetName["value"]" class="form-control is-valid" id="inputValid">
-                </div>
-            }
-            else
-            {
-                <div class="form-group has-danger">
-                    <label class="form-label mt-4" for="inputInvalid">Pet's name</label>
-                    <input type="text" class="form-control is-invalid" id="inputValid">
-                    <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                </div>
-            }
-                            
-            <div class="form-group">
-                @if (Model.Products.Count() > 0)
-                {
-                    <label class="col-form-label mt-4" for="inputDefault">Products</label>
-                }
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        @if (Model.Products.FirstOrDefault()?.Description != null)
-                        {
-                            <th>Description</th>
-                        }
-                        @if (Model.Products.FirstOrDefault()?.Quantity != null)
-                        {
-                            <th>Quantity</th>
-                        }
-                        @if (Model.Products.FirstOrDefault()?.Amount != null)
-                        {
-                            <th>Amount</th>
-                        }
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    @foreach (var item in Model.Products)
-                    {
-                        <tr>
-                            @if (String.IsNullOrEmpty(item.Description?["value"]) == false &&
-                                 float.Parse(@item.Description["confidence"]) > 0.5)
-                            {
-                                <th>@item.Description["value"]</th>
-                            }
-                            @if (String.IsNullOrEmpty(item.Quantity?["value"]) == false &&
-                                 float.Parse(@item.Quantity["confidence"]) > 0.5)
-                            {
-                                <td>@item.Quantity["value"]</td>
-                            }
-                            @if (String.IsNullOrEmpty(item.Amount?["value"]) == false &&
-                                 float.Parse(@item.Amount["confidence"]) > 0.5)
-                            {
-                                <td>@item.Amount["value"]</td>
-                            }
-                        </tr>
-                    }
-                    </tbody>
-                </table>
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Invoice code</label>
+                <input type="text" asp-for="@Model.Purchase.InvoiceNumber["value"]" class="form-control is-valid" id="inputValid">
             </div>
         }
         else
         {
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
-                <input type="text" class="form-control" placeholder="Invoice code">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
-                <input type="text" class="form-control" placeholder="Date of issue">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
-                <input type="text" class="form-control" placeholder="Total amount">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
-                <input type="text" class="form-control" placeholder="Clinic name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
-                <input type="text" class="form-control" placeholder="Clinic address">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
-                <input type="text" class="form-control" placeholder="Clinic zip code">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
-                <input type="text" class="form-control" placeholder="Pet's name">
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Invoice code</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
             </div>
         }
+
+        @if (String.IsNullOrEmpty(Model.Purchase.Date["value"]) == false &&
+             float.Parse(@Model.Purchase.Date["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Date of issue</label>
+                <input type="text" asp-for="@Model.Purchase.Date["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Date of issue</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+        @if (String.IsNullOrEmpty(Model.Purchase.TotalAmount["value"]) == false &&
+             float.Parse(@Model.Purchase.TotalAmount["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Total amount</label>
+                <input type="text" asp-for="@Model.Purchase.TotalAmount["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Total amount</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+        @if (String.IsNullOrEmpty(Model.Purchase.ClinicName["value"]) == false &&
+             float.Parse(@Model.Purchase.ClinicName["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Clinic name</label>
+                <input type="text" asp-for="@Model.Purchase.ClinicName["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Clinic name</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+
+        @if (String.IsNullOrEmpty(Model.Purchase.Address["value"]) == false &&
+             float.Parse(@Model.Purchase.Address["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Clinic address</label>
+                <input type="text" asp-for="@Model.Purchase.Address["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Clinic address</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+        @if (String.IsNullOrEmpty(Model.Purchase.Zip["value"]) == false &&
+             float.Parse(@Model.Purchase.Zip["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Clinic zip code</label>
+                <input type="text" asp-for="@Model.Purchase.Zip["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Clinic zip code</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+        @if (String.IsNullOrEmpty(Model.Purchase.PetName["value"]) == false &&
+             float.Parse(@Model.Purchase.PetName["confidence"]) > 0.7)
+        {
+            <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid">Pet's name</label>
+                <input type="text" asp-for="@Model.Purchase.PetName["value"]" class="form-control is-valid" id="inputValid">
+            </div>
+        }
+        else
+        {
+            <div class="form-group has-danger">
+                <label class="form-label mt-4" for="inputInvalid">Pet's name</label>
+                <input type="text" class="form-control is-invalid" id="inputValid">
+                <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+            </div>
+        }
+
+        <div class="form-group">
+            @if (Model.Products.Count() > 0)
+            {
+                <label class="col-form-label mt-4" for="inputDefault">Products</label>
+            }
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    @if (Model.Products.FirstOrDefault()?.Description != null)
+                    {
+                        <th>Description</th>
+                    }
+                    @if (Model.Products.FirstOrDefault()?.Quantity != null)
+                    {
+                        <th>Quantity</th>
+                    }
+                    @if (Model.Products.FirstOrDefault()?.Amount != null)
+                    {
+                        <th>Amount</th>
+                    }
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        @if (String.IsNullOrEmpty(item.Description?["value"]) == false &&
+                             float.Parse(@item.Description["confidence"]) > 0.5)
+                        {
+                            <th>@item.Description["value"]</th>
+                        }
+                        @if (String.IsNullOrEmpty(item.Quantity?["value"]) == false &&
+                             float.Parse(@item.Quantity["confidence"]) > 0.5)
+                        {
+                            <td>@item.Quantity["value"]</td>
+                        }
+                        @if (String.IsNullOrEmpty(item.Amount?["value"]) == false &&
+                             float.Parse(@item.Amount["confidence"]) > 0.5)
+                        {
+                            <td>@item.Amount["value"]</td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
+            <input type="text" class="form-control" placeholder="Invoice code">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Date of issue</label>
+            <input type="text" class="form-control" placeholder="Date of issue">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Total amount</label>
+            <input type="text" class="form-control" placeholder="Total amount">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Clinic name</label>
+            <input type="text" class="form-control" placeholder="Clinic name">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Clinic address</label>
+            <input type="text" class="form-control" placeholder="Clinic address">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Clinic zip code</label>
+            <input type="text" class="form-control" placeholder="Clinic zip code">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
+            <input type="text" class="form-control" placeholder="Pet's name">
+        </div>
+    }
 
     </div>
     </div>
@@ -268,27 +274,24 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                
-                <form method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <div class="custom-file">
-                                <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
-                                <span asp-validation-for="Photo" class="text-danger"></span>
-                            </div>
+                @if (Model != null)
+                {
+                    @if (String.IsNullOrEmpty(Model.Product.Name["value"]) == false &&
+                         float.Parse(@Model.Product.Name["confidence"]) > 0.7)
+                    {
+                        <div class="form-group has-success">
+                            <label class="form-label mt-4" for="inputValid">Product name</label>
+                            <input type="text" asp-for="@Model.Product.Name["value"]" class="form-control is-valid" id="inputValid">
                         </div>
-                    </div>
-                    <br/>
-                    <div class="form-group">
-                        <input class="btn btn-primary" type="submit" value="Find rebate products"/>
-                    </div>
-                    <br/>
-                </form>
-
-                <div class="form-group">
-                    <label class="col-form-label mt-4" for="inputDefault">Product name</label>
-                    <input type="text" class="form-control" placeholder="Product name">
-                </div>
+                    }
+                    else{
+                        <div class="form-group has-danger">
+                            <label class="form-label mt-4" for="inputInvalid">Product name</label>
+                            <input type="text" class="form-control is-invalid" id="inputValid">
+                            <div class="invalid-feedback">Sorry, Couldn't extract data</div>
+                        </div>
+                    }
+                }
 
             </div>
         </div>
