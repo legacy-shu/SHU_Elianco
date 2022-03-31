@@ -2,7 +2,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,23 +11,32 @@
 
 <body>
 
-<div class="bgImage">
-    <a href="">
-        <button class="bannerButton">
-            Claim A Rebate
-        </button>
-    </a>
-</div>
+    <div class="bgImage">
+        <a href="">
+            <button class="bannerButton">
+                Claim A Rebate
+            </button>
+        </a>
+    </div>
 
 <div class="text-center">
-    <h1 class="display-4">YOUR PET AND YOU!!</h1>
-    <p class="display-5">Welcome To the Elanco Rebate Processes.</p>
-    <h2>Obtaining A Rebate</h2>
-    <br/>
-</div>
+        <p class="display-5">Welcome To the Elanco Rebate Processes.</p>
+        <h2>Obtaining A Rebate</h2>
+        <br/>
+    </div>
 
 
-<div class="container">
+    <div class="container">
+    <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5>Extract Data Model</h5>
+        </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+    
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <div class="col-auto">
@@ -37,23 +45,6 @@
                         <span asp-validation-for="Photo" class="text-danger"></span>
                     </div>
                 </div>
-               
-                <fieldset class="form-group">
-                    <legend class="mt-4">Select upload type</legend>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="photoType" id="optionsRadios1" value="receipt" checked="" asp-for="photoType">
-                            Extract data by receipt image
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="photoType" id="optionsRadios2" value="product" asp-for="photoType">
-                            Find rebate product from product image
-                        </label>
-                    </div>
-                </fieldset>
-                
             </div>
             <br/>
             <div class="form-group">
@@ -61,20 +52,9 @@
             </div>
             <br/>
         </form>
-    </div>
-
-<div class="container">
-<div class="accordion" id="accordionExample">
-<div class="accordion-item">
-<h2 class="accordion-header" id="headingOne">
-    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <h5>Extract Data Model</h5>
-    </button>
-</h2>
-@if (Model?.Purchase != null)
-{
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+    
+    @if (Model != null)
+        {
             @if (String.IsNullOrEmpty(Model.Purchase.InvoiceNumber?["value"]) == false &&
                  float.Parse(@Model.Purchase.InvoiceNumber["confidence"]) > 0.7)
             {
@@ -91,8 +71,8 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-            @if (String.IsNullOrEmpty(Model.Purchase.Date?["value"]) == false &&
+                                        
+            @if (String.IsNullOrEmpty(Model.Purchase.Date["value"]) == false &&
                  float.Parse(@Model.Purchase.Date["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -108,8 +88,8 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-            @if (String.IsNullOrEmpty(Model.Purchase.TotalAmount?["value"]) == false &&
+                                        
+            @if (String.IsNullOrEmpty(Model.Purchase.TotalAmount["value"]) == false &&
                  float.Parse(@Model.Purchase.TotalAmount["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -125,8 +105,8 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-            @if (String.IsNullOrEmpty(Model.Purchase.ClinicName?["value"]) == false &&
+                                        
+            @if (String.IsNullOrEmpty(Model.Purchase.ClinicName["value"]) == false &&
                  float.Parse(@Model.Purchase.ClinicName["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -142,9 +122,9 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-
-            @if (String.IsNullOrEmpty(Model.Purchase.Address?["value"]) == false &&
+                            
+                                        
+            @if (String.IsNullOrEmpty(Model.Purchase.Address["value"]) == false &&
                  float.Parse(@Model.Purchase.Address["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -160,8 +140,8 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-            @if (String.IsNullOrEmpty(Model.Purchase.Zip?["value"]) == false &&
+                                        
+            @if (String.IsNullOrEmpty(Model.Purchase.Zip["value"]) == false &&
                  float.Parse(@Model.Purchase.Zip["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -177,8 +157,8 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-
-            @if (String.IsNullOrEmpty(Model.Purchase.PetName?["value"]) == false &&
+            
+            @if (String.IsNullOrEmpty(Model.Purchase.PetName["value"]) == false &&
                  float.Parse(@Model.Purchase.PetName["confidence"]) > 0.7)
             {
                 <div class="form-group has-success">
@@ -194,13 +174,13 @@
                     <div class="invalid-feedback">Sorry, Couldn't extract data</div>
                 </div>
             }
-                                            
+                            
             <div class="form-group">
-                @if ((Model.Products).Any())
+                @if (Model.Products.Count() > 0)
                 {
                     <label class="col-form-label mt-4" for="inputDefault">Products</label>
                 }
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         @if (Model.Products.FirstOrDefault()?.Description != null)
@@ -215,14 +195,13 @@
                         {
                             <th>Amount</th>
                         }
-                        @if (Model.Products.Any(c => c.Code != null))
+                        @if (Model.Products.FirstOrDefault()?.Accuracy != null)
                         {
-                            <th>Rabate Code</th>
+                            <th>Accuracy</th>
                         }
-                        
                     </tr>
                     </thead>
-                
+
                     <tbody>
                     @foreach (var item in Model.Products)
                     {
@@ -230,71 +209,31 @@
                             @if (String.IsNullOrEmpty(item.Description?["value"]) == false &&
                                  float.Parse(@item.Description["confidence"]) > 0.5)
                             {
-                                @if (float.Parse(@item.Description["confidence"]) >= 0.7)
-                                {
-                                    <td style="color: green">@item.Description["value"]</td>
-                                }
-                                else if (float.Parse(@item.Description["confidence"]) >= 0.5 &&
-                                         float.Parse(@item.Description["confidence"]) < 0.7)
-                                {
-                                    <td style="color: orange">@item.Description["value"]</td>
-                                }
-                                else
-                                {
-                                    <td style="color: red">@item.Description["value"]</td>
-                                }
+                                <th>@item.Description["value"]</th>
                             }
                             @if (String.IsNullOrEmpty(item.Quantity?["value"]) == false &&
                                  float.Parse(@item.Quantity["confidence"]) > 0.5)
                             {
-                                @if (float.Parse(@item.Quantity["confidence"]) >= 0.7)
-                                {
-                                    <td style="color: green">@item.Quantity["value"]</td>
-                                }
-                                else if (float.Parse(@item.Quantity["confidence"]) >= 0.5 &&
-                                         float.Parse(@item.Quantity["confidence"]) < 0.7)
-                                {
-                                    <td style="color: orange">@item.Quantity["value"]</td>
-                                }
-                                else
-                                {
-                                    <td style="color: red">@item.Quantity["value"]</td>
-                                }
+                                <td>@item.Quantity["value"]</td>
                             }
                             @if (String.IsNullOrEmpty(item.Amount?["value"]) == false &&
                                  float.Parse(@item.Amount["confidence"]) > 0.5)
                             {
-                                @if (float.Parse(@item.Amount["confidence"]) >= 0.7)
-                                {
-                                    <td style="color: green">@item.Amount["value"]</td>
-                                }
-                                else if (float.Parse(@item.Amount["confidence"]) >= 0.5 &&
-                                         float.Parse(@item.Amount["confidence"]) < 0.7)
-                                {
-                                    <td style="color: orange">@item.Amount["value"]</td>
-                                }
-                                else
-                                {
-                                    <td style="color: red">@item.Amount["value"]</td>
-                                }
+                                <td>@item.Amount["value"]</td>
                             }
-                            @if (String.IsNullOrEmpty(item.Code) == false)
+                            @if (String.IsNullOrEmpty(item.Accuracy?["Value"]) == false &&
+                                 float.Parse(@item.Accuracy["confidence"]) > 0.5)
                             {
-                                <td style="color: green">@item.Code</td>
+                                <td>@item.Accuracy["value"]</td>
                             }
-                            
                         </tr>
                     }
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-}
-else
-{
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        }
+        else
+        {
             <div class="form-group">
                 <label class="col-form-label mt-4" for="inputDefault">Invoice code</label>
                 <input type="text" class="form-control" placeholder="Invoice code">
@@ -323,125 +262,92 @@ else
                 <label class="col-form-label mt-4" for="inputDefault">Pet's name</label>
                 <input type="text" class="form-control" placeholder="Pet's name">
             </div>
-        </div>
+        }
+
     </div>
-}
-    
-</div>
-</div>
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <h5>Product Information for rebate process</h5>
-        </button>
-    </h2>
-    @if (Model?.Product != null)
-    {
-        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                
-                @if (Model.Product.Name?["value"] != null)
-                {
-                    <div class="form-group">
-                        <label class="col-form-label mt-4" for="inputDefault">Product name</label>
-                        <input type="text" asp-for="@Model.Product.Name["value"]" class="form-control is-valid" id="inputValid">
-                    </div>
-                         
-                    @if (Model.Product.Code != null)
-                    {
-                        <div class="form-group">
-                            <label class="col-form-label mt-4" for="inputDefault">OFFER CODE</label>
-                            <input type="text" asp-for="@Model.Product.Code" class="form-control is-valid" id="inputValid">
-                            <div class="valid-feedback">You get offer code</div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="form-group has-danger">
-                            <label class="form-label mt-4" for="inputInvalid">OFFER CODE</label>
-                            <input type="text" class="form-control is-invalid" id="inputValid">
-                            <div class="invalid-feedback">Sorry, There is no rebate offer for you</div>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <div class="form-group has-danger">
-                        <label class="form-label mt-4" for="inputInvalid">Product name</label>
-                        <input type="text" class="form-control is-invalid" id="inputValid">
-                        <div class="invalid-feedback">Sorry, Couldn't extract data</div>
-                    </div>
-                }
-            </div>
-        </div>
-    }
-    else
-    {
+    </div>
+    </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h5>Product Information for rebate process</h5>
+            </button>
+        </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <div class="form-group has-danger">
+                
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="col-auto">
+                            <div class="custom-file">
+                                <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Find rebate products"/>
+                    </div>
+                    <br/>
+                </form>
+
+                <div class="form-group">
                     <label class="col-form-label mt-4" for="inputDefault">Product name</label>
                     <input type="text" class="form-control" placeholder="Product name">
                 </div>
-            </div>
-        </div>
-    }
-        
-</div>
-    
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-            <h5>Customer Information</h5>
-        </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">First name</label>
-                <input type="text" class="form-control" placeholder="First name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Last name</label>
-                <input type="text" class="form-control" placeholder="Last name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Address</label>
-                <input type="text" class="form-control" placeholder="Address">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Zip code</label>
-                <input type="text" class="form-control" placeholder="Zip code">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">City</label>
-                <input type="text" class="form-control" placeholder="City">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Email</label>
-                <input type="text" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label mt-4" for="inputDefault">Phone</label>
-                <input type="text" class="form-control" placeholder="Phone" id="inputDefault">
+
             </div>
         </div>
     </div>
-</div>
-<br/>
-<br/>
-<br/>
-<div class="card border-primary mb-3" style="max-width: 100rem;">
-  <div class="card-header">I'm your helper</div>
-  <div class="card-body">
-    <iframe src='https://webchat.botframework.com/embed/shuqnamaker11-bot2?s=6kZgax92JZM.wvKf_Ql5uS0lBv4O114Nc7fe9K7Tfx8Vfj8hT80f_Ns' style='min-width: 300px; width: 100%; min-height: 150px;'></iframe>
-  </div>
-</div>
-</div>
-
-
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                <h5>Customer Information</h5>
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">First name</label>
+                    <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">Last name</label>
+                    <input type="text" class="form-control" placeholder="Last name">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">Address</label>
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">Zip code</label>
+                    <input type="text" class="form-control" placeholder="Zip code">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">City</label>
+                    <input type="text" class="form-control" placeholder="City">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">Email</label>
+                    <input type="text" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">Phone</label>
+                    <input type="text" class="form-control" placeholder="Phone" id="inputDefault">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    <div class="footer">
+        <button class="submitBtn" onclick="Message()">Submit</button>
+    </div>
 </body>
-
 </html>
 
 
@@ -465,15 +371,15 @@ else
 
 <div class="modal modal-backdrop" id="isLoading">
     <div class="modal-dialog modal-dialog-centered modal-sm">
-        @* <div class="modal-content"> *@
+        <div class="modal-content">
             <div class="modal-body">
                 <div class="text-center">
-                    <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
-                      <span class="sr-only">Loading...</span>
+                    <div class="spinner-grow text-info m-5" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="sr-only">Loading...</span>
                     </div>
                 </div>
             </div>
-        @* </div> *@
+        </div>
     </div>
 </div>
 
