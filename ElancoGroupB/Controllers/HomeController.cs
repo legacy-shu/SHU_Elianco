@@ -96,12 +96,19 @@ public class HomeController : Controller
             
             if (product.Name?["value"].Length > 4)
             {
-                _notyf.Success("It has been succeed extracting data",3);
                 product.Code = new Rebate().getRebateCode(product.Name["value"]);
+                if (product.Code != null)
+                {
+                    _notyf.Success("Here you go",3);
+                }
+                else
+                {
+                    _notyf.Custom("There is no rebate offer for you",3, backgroundColor:"yellow");
+                }
             }
             else
             {
-                _notyf.Error("It has been failed extracting data",3);
+                _notyf.Error("It has been failed",3);
             }
             viewModel.Product = product;
             Console.WriteLine($"CODE:{product.Code}");
