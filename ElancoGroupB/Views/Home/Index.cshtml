@@ -12,16 +12,7 @@
 
 <body>
 
-<div class="bgImage">
-    <a href="">
-        <button class="bannerButton">
-            Claim A Rebate
-        </button>
-    </a>
-</div>
-
 <div class="text-center">
-    <h1 class="display-4">YOUR PET AND YOU!!</h1>
     <p class="display-5">Welcome To the Elanco Rebate Processes.</p>
     <h2>Obtaining A Rebate</h2>
     <br/>
@@ -57,7 +48,7 @@
             </div>
             <br/>
             <div class="form-group">
-                <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Extract Data" id="uploadimage"/>
+                <input class="btn btn-primary" asp-page-handler="Upload" type="submit" value="Apply for rebate" id="uploadimage"/>
             </div>
             <br/>
         </form>
@@ -428,6 +419,17 @@ else
         </div>
     </div>
 </div>
+
+<div class="footer">
+    
+    <div class="d-grid gap-2">
+        <br/>
+        <button class="btn btn-lg btn-dark" type="button" onclick="Message()">Submit</button>
+    </div>
+    
+    @* <button class="submitBtn" onclick="Message()">Submit</button> *@
+</div>
+
 <br/>
 <br/>
 <br/>
@@ -438,6 +440,7 @@ else
   </div>
 </div>
 </div>
+
 
 
 </body>

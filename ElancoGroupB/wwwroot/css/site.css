@@ -93,7 +93,8 @@ input[type="text"] {
   padding: 14px 14px;
 }
 .nav-item:hover{
-  background-color: #ffffff; ;
+  background-color: #2a7aaf;
+  position: sticky;
 }
 
 .text-center2{
@@ -403,7 +404,31 @@ input[type="text"] {
   -webkit-overflow-scrolling: touch;
 }
 
+.submitBtn{
+  background-color: #033357;
+  margin-top: 20px;
+  margin-left: 750px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
+.navbar-nav {
+  position: sticky;
+  background-color: #033357;
+  font-family: Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  line-height: 1.5;
+  color: #ffffff;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
 
 
