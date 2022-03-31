@@ -11,8 +11,6 @@ html {
 html {
   position: relative;
   min-height: 100%;
-  font-family: Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-  line-height: 1.5;
 }
 
 body {
@@ -79,38 +77,30 @@ input[type="text"] {
   
 }
 .navbar-nav {
-  position: sticky;
-  background-color: #033357;
-  font-family: Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-  line-height: 1.5;
-  color: #ffffff;
-  text-decoration: none;
+  background-color: #0a58ca;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  position: sticky;
 }
 
 .nav-item{
-  position: sticky;
   font-family: Arial, serif;
-  color: white;
+  color: #ffffff;
   float: left;
   display: block;
   text-align: center;
   padding: 14px 14px;
 }
 .nav-item:hover{
-  position: sticky;
-  background-color: #2a7aaf; 
+  background-color: #ffffff; ;
 }
 
 .text-center2{
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid #000;
   border-top-width: thick;
   border-top-color: #0f7864;
-  border-bottom:1px solid #ffffff;
+  border-bottom:1px solid #000;
   border-bottom-color: #0f7864;
   border-bottom-width: thick;
   text-align: center;
@@ -151,9 +141,7 @@ input[type="text"] {
 }
 
 .bannerButton {
-  background-color: #033357;
-  margin-left: 550px;
-  margin-bottom: 50px;
+  background-color: #0000FF;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -163,43 +151,257 @@ input[type="text"] {
   font-size: 16px;
 }
 
-.bannerButton:hover{
-  background-color: #2a7aaf;
+/*===========================
+     CHAT BOOT MESSENGER
+   ===========================*/
+#Smallchat .Messages, #Smallchat .Messages_list {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
-
-.nav-item{
-  color: #ffffff;
+.chat_close_icon {
+  cursor:pointer;
+  color: #fff;
+  font-size:16px;
+  position: absolute;
+  right: 12px;
+  z-index: 9;
 }
-
-nav a {
-  position: static;
-  color:#ffffff;
-}
-
-.h2{
-  color: #033357;
-}
-
-.submitBtn{
-  background-color: #033357;
-  margin-top: 20px;
-  margin-left: 12px;
-  border: none;
-  color: white;
-  padding: 15px 32px;
+.chat_on {
+  position: fixed;
+  z-index: 10;
+  width: 45px;
+  height: 45px;
+  right: 15px;
+  bottom:20px;
+  background-color: #8a57cf;
+  color: #fff;
+  border-radius: 50%;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  padding: 9px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+  cursor: pointer;
+  display: block;
+}
+.chat_on_icon{
+  color:#fff;
+  font-size:25px;
+  text-align:center;
+}
+/*
+#Smallchat,#Smallchat * {
+ box-sizing:border-box; 
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ -webkit-tap-highlight-color:transparent
+}
+*/
+#Smallchat .Layout {
+  pointer-events:auto;
+  box-sizing:content-box!important;
+  z-index:999999999;
+  position:fixed;
+  bottom:20px;
+  min-width:50px;
+  max-width:300px;
+  max-height:30px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -webkit-flex-direction:column;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  -webkit-box-pack:end;
+  -webkit-justify-content:flex-end;
+  -ms-flex-pack:end;
+  justify-content:flex-end;
+  border-radius:50px;
+  box-shadow:5px 0 20px 5px rgba(0,0,0,.1);
+  -webkit-animation:appear .15s cubic-bezier(.25,.25,.5,1.1);
+  animation:appear .15s cubic-bezier(.25,.25,.5,1.1);
+  -webkit-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+  opacity:0;
+  -webkit-transition:right .1s cubic-bezier(.25,.25,.5,1),bottom .1s cubic-bezier(.25,.25,.5,1),min-width .2s cubic-bezier(.25,.25,.5,1),max-width .2s cubic-bezier(.25,.25,.5,1),min-height .2s cubic-bezier(.25,.25,.5,1),max-height .2s cubic-bezier(.25,.25,.5,1),border-radius 50ms cubic-bezier(.25,.25,.5,1) .15s,background-color 50ms cubic-bezier(.25,.25,.5,1) .15s,color 50ms cubic-bezier(.25,.25,.5,1) .15s;
+  transition:right .1s cubic-bezier(.25,.25,.5,1),bottom .1s cubic-bezier(.25,.25,.5,1),min-width .2s cubic-bezier(.25,.25,.5,1),max-width .2s cubic-bezier(.25,.25,.5,1),min-height .2s cubic-bezier(.25,.25,.5,1),max-height .2s cubic-bezier(.25,.25,.5,1),border-radius 50ms cubic-bezier(.25,.25,.5,1) .15s,background-color 50ms cubic-bezier(.25,.25,.5,1) .15s,color 50ms cubic-bezier(.25,.25,.5,1) .15s
+
 }
 
-  
+#Smallchat .Layout-right {
+  right:20px
+}
+
+#Smallchat .Layout-open {
+  overflow:hidden;
+  min-width:300px;
+  max-width:300px;
+  height:500px;
+  max-height:500px;
+  border-radius:10px;
+  color:#fff;
+  -webkit-transition:right .1s cubic-bezier(.25,.25,.5,1),bottom .1s cubic-bezier(.25,.25,.5,1.1),min-width .2s cubic-bezier(.25,.25,.5,1.1),max-width .2s cubic-bezier(.25,.25,.5,1.1),max-height .2s cubic-bezier(.25,.25,.5,1.1),min-height .2s cubic-bezier(.25,.25,.5,1.1),border-radius 0ms cubic-bezier(.25,.25,.5,1.1),background-color 0ms cubic-bezier(.25,.25,.5,1.1),color 0ms cubic-bezier(.25,.25,.5,1.1);
+  transition:right .1s cubic-bezier(.25,.25,.5,1),bottom .1s cubic-bezier(.25,.25,.5,1.1),min-width .2s cubic-bezier(.25,.25,.5,1.1),max-width .2s cubic-bezier(.25,.25,.5,1.1),max-height .2s cubic-bezier(.25,.25,.5,1.1),min-height .2s cubic-bezier(.25,.25,.5,1.1),border-radius 0ms cubic-bezier(.25,.25,.5,1.1),background-color 0ms cubic-bezier(.25,.25,.5,1.1),color 0ms cubic-bezier(.25,.25,.5,1.1);
+}
+
+#Smallchat .Layout-expand {
+  height:500px;
+  min-height:500px;
+  display:none;
+}
+#Smallchat .Layout-mobile {
+  bottom:10px
+}
+#Smallchat .Layout-mobile.Layout-open {
+  width:calc(100% - 20px);
+  min-width:calc(100% - 20px)
+}
+#Smallchat .Layout-mobile.Layout-expand {
+  bottom:0;
+  height:100%;
+  min-height:100%;
+  width:100%;
+  min-width:100%;
+  border-radius:0!important
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity:0;
+    -webkit-transform:scale(0);
+    transform:scale(0)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+  }
+}
+@keyframes appear {
+  0% {
+    opacity:0;
+    -webkit-transform:scale(0);
+    transform:scale(0)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+  }
+}
+#Smallchat .Messenger_messenger {
+  position:relative;
+  height:100%;
+  width:100%;
+  min-width:300px;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -webkit-flex-direction:column;
+  -ms-flex-direction:column;
+  flex-direction:column
+}
+#Smallchat .Messenger_header,#Smallchat .Messenger_messenger {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex
+}
+#Smallchat .Messenger_header {
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+  -ms-flex-align:center;
+  align-items:center;
+  padding-left:10px;
+  padding-right:40px;
+  height:40px;
+  -webkit-flex-shrink:0;
+  -ms-flex-negative:0;
+  flex-shrink:0
+}
 
 
+#Smallchat .Messenger_header h4 {
+  opacity:0;
+  font-size:16px;
+  -webkit-animation:slidein .15s .3s;
+  animation:slidein .15s .3s;
+  -webkit-animation-fill-mode:forwards;
+  animation-fill-mode:forwards
+}
 
+#Smallchat .Messenger_prompt {
+  margin:0;
+  font-size:16px;
+  line-height:18px;
+  font-weight:400;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis
+}
 
-
-
+@-webkit-keyframes slidein {
+  0% {
+    opacity:0;
+    -webkit-transform:translateX(10px);
+    transform:translateX(10px)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:translateX(0);
+    transform:translateX(0)
+  }
+}
+@keyframes slidein {
+  0% {
+    opacity:0;
+    -webkit-transform:translateX(10px);
+    transform:translateX(10px)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:translateX(0);
+    transform:translateX(0)
+  }
+}
+#Smallchat .Messenger_content {
+  height: 450px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+}
+#Smallchat .Messages {
+  position: relative;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fff;
+  -webkit-overflow-scrolling: touch;
+}
 
 
 

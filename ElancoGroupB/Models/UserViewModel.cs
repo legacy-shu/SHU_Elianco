@@ -12,4 +12,8 @@ public class UserViewModel
 
     public IEnumerable<Item> Products { get; set; }
 
+    public Product Product { get; set; }
+
+    public string photoType { get; set; }
+
 }
