@@ -430,5 +430,39 @@ input[type="text"] {
   overflow: hidden;
 }
 
-
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: transparent;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 300px;
+}
+.closePopUp{
+    display: block;
+    position: fixed;
+    bottom: 320px;
+    right: 10px;
+    border: 3px solid #f1f1f1;
+    z-index: 99;
+    width:30px;
+    height:30px;
+    background-color: rebeccapurple;
+    color:#f1f1f1;
+}
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 1px solid #f1f1f1;
+    z-index: 9;
+    height:350px;
+}
 

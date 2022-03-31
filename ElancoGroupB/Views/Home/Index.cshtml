@@ -421,33 +421,33 @@ else
 </div>
 
 <div class="footer">
-    
     <div class="d-grid gap-2">
         <br/>
         <button class="btn btn-lg btn-dark" type="button" onclick="Message()">Submit</button>
     </div>
-    
-    @* <button class="submitBtn" onclick="Message()">Submit</button> *@
 </div>
 
-<br/>
-<br/>
-<br/>
-<div class="card border-primary mb-3" style="max-width: 100rem;">
-    
-    <div class="card-header">I'm your helper<img src="images/chaticon.png" alt="Girl in a jacket" width="40" height="40"></div>
-    <div class="card-body">
-        <iframe src='https://webchat.botframework.com/embed/shuqnamaker11-bot2?s=6kZgax92JZM.wvKf_Ql5uS0lBv4O114Nc7fe9K7Tfx8Vfj8hT80f_Ns' style='min-width: 300px; width: 100%; min-height: 150px;'></iframe>
-    </div>
 </div>
-</div>
-
-
 
 </body>
 
 </html>
 
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+</script>
+<button onclick="openForm()" class="open-button"><img src="images/chaticon.png" alt="Girl in a jacket" width="100" height="100"></button>
+<button onclick="openForm()" class="open-button"><img src="images/chaticon.png" alt="Girl in a jacket" width="100" height="100"></button>
+<div id="myForm" class="chat-popup">
+    <iframe src='https://webchat.botframework.com/embed/shuqnamaker11-bot2?s=6kZgax92JZM.wvKf_Ql5uS0lBv4O114Nc7fe9K7Tfx8Vfj8hT80f_Ns' style='min-width: 300px; width: 100%; min-height: 350px;'></iframe>
+    <button onclick="closeForm()" class="closePopUp">X</button>
+</div>
+<p></p>
 
 @section Scripts{
     <script type="text/javascript">
