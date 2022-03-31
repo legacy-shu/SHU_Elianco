@@ -22,13 +22,6 @@
 <div class="container">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <div class="col-auto">
-                    <div class="custom-file">
-                        <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
-                        <span asp-validation-for="Photo" class="text-danger"></span>
-                    </div>
-                </div>
-               
                 <fieldset class="form-group">
                     <legend class="mt-4">Select upload type</legend>
                     <div class="form-check">
@@ -44,7 +37,15 @@
                         </label>
                     </div>
                 </fieldset>
-                
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-auto">
+                    <div class="custom-file">
+                        <input asp-for="Photo" class="form-control custom-file-input" accept="image/png, image/jpeg, image/jpg, application/pdf"/>
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
             <br/>
             <div class="form-group">
@@ -469,15 +470,18 @@ else
 
 <div class="modal modal-backdrop" id="isLoading">
     <div class="modal-dialog modal-dialog-centered modal-sm">
-        @* <div class="modal-content"> *@
+        <div class="modal-content">
             <div class="modal-body">
                 <div class="text-center">
-                    <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
-                      <span class="sr-only">Loading...</span>
+                    <div class="spinner-border text" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="sr-only">Loading...</span>
                     </div>
                 </div>
+                <div class="text-center">
+                    <h4><strong>Finding rebate offer</strong></h4>
+                </div>
             </div>
-        @* </div> *@
+        </div>
     </div>
 </div>
 
