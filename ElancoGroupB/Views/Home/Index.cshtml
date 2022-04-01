@@ -258,16 +258,16 @@
                             {
                                 @if (float.Parse(@item.Amount["confidence"]) >= 0.7)
                                 {
-                                    <td style="color: green">@item.Amount["value"]$</td>
+                                    <td style="color: green">@item.Amount["value"]</td>
                                 }
                                 else if (float.Parse(@item.Amount["confidence"]) >= 0.5 &&
                                          float.Parse(@item.Amount["confidence"]) < 0.7)
                                 {
-                                    <td style="color: orange">@item.Amount["value"]$</td>
+                                    <td style="color: orange">@item.Amount["value"]</td>
                                 }
                                 else
                                 {
-                                    <td style="color: red">@item.Amount["value"]$</td>
+                                    <td style="color: red">@item.Amount["value"]</td>
                                 }
                             }
                             @if (String.IsNullOrEmpty(item.Code) == false)
