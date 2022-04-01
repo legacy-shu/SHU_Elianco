@@ -58,15 +58,15 @@ public class HomeController : Controller
             
             if (receiptCustomModel1.dataCount == 8)
             {
-                _notyf.Success("It has been succeed extracting data",3);
+                _notyf.Success("Data has been extracted",10);
             }
             else if (receiptCustomModel1.dataCount == 0)
             {
-                _notyf.Error("It has been failed extracting data",3);
+                _notyf.Error("Data failed to be extracted!",10);
             }
             else
             {
-                _notyf.Custom("It has been failed extracting data",3, backgroundColor:"yellow");
+                _notyf.Custom("Data failed to be extracted!",10, backgroundColor:"yellow");
             }
             
             // Console.WriteLine(receiptCustomModel1.ClinicName?["value"] + ":" + receiptCustomModel1.ClinicName?["confidence"]);
@@ -99,16 +99,16 @@ public class HomeController : Controller
                 product.Code = new Rebate().getRebateCode(product.Name["value"]);
                 if (product.Code != null)
                 {
-                    _notyf.Success("A rebate has been found",3);
+                    _notyf.Success("A rebate has been found!",10);
                 }
                 else
                 {
-                    _notyf.Custom("There is no rebate offer for you",3, backgroundColor:"yellow");
+                    _notyf.Custom("There is no rebate offer found!",10, backgroundColor:"yellow");
                 }
             }
             else
             {
-                _notyf.Error("It has been failed",3);
+                _notyf.Error("There is no rebate offer found!",10);
             }
             viewModel.Product = product;
             Console.WriteLine($"CODE:{product.Code}");
