@@ -99,7 +99,7 @@ public class HomeController : Controller
                 product.Code = new Rebate().getRebateCode(product.Name["value"]);
                 if (product.Code != null)
                 {
-                    _notyf.Success("Here you go",3);
+                    _notyf.Success("A rebate has been found",3);
                 }
                 else
                 {
