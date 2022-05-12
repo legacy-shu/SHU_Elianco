@@ -1,21 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "eam9y+g1sZWb7TQit/NuGeuLXygpXiNCDRkQbbN46rDD8fofaXZuRt4v8IPZrGOskCBsmgumJOqDX9snyui3/Q==",
+  "dgSpecHash": "GTY1f3Z/T+DTqo1JlaWlIDAy1e1+jpWzvp3LyGJT6+I1r6DBmw/1q/7PvVr4NZDOJwTAHQLCNDflFw+S0rccBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\RiderProjects\\SHU_Elianco-new\\ElancoGroupB\\ElancoGroupB.csproj",
+  "projectFilePath": "/Volumes/EXHD/SHU/Elanco/SHU_Elianco/ElancoGroupB/ElancoGroupB.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\USER\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\azure.ai.formrecognizer\\4.0.0-beta.3\\azure.ai.formrecognizer.4.0.0-beta.3.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\azure.core\\1.22.0\\azure.core.1.22.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\bootstrap\\5.1.3\\bootstrap.5.1.3.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "/Users/lundaljung/.nuget/packages/aspnetcorehero.toastnotification/1.1.0/aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/azure.ai.formrecognizer/4.0.0-beta.3/azure.ai.formrecognizer.4.0.0-beta.3.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/azure.core/1.22.0/azure.core.1.22.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/bootstrap/5.1.3/bootstrap.5.1.3.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.diagnostics.diagnosticsource/4.6.0/system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.text.encodings.web/4.7.2/system.text.encodings.web.4.7.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
+    "/Users/lundaljung/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
