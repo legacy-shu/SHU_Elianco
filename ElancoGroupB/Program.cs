@@ -15,10 +15,10 @@ builder.Services.AddNotyf(config =>
 });
 
 // using System.Net;
-builder.Services.Configure<ForwardedHeadersOptions>(options =>
-{
-    options.KnownProxies.Add(IPAddress.Parse("lundaljung.com"));
-});
+// builder.Services.Configure<ForwardedHeadersOptions>(options =>
+// {
+//     options.KnownProxies.Add(IPAddress.Parse("lundaljung.com"));
+// });
 
 var app = builder.Build();
 
