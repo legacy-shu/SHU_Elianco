@@ -30,6 +30,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
     app.UseHttpsRedirection();
 }
+else
+{
+    app.UseDeveloperExceptionPage();
+}
 
 // using Microsoft.AspNetCore.HttpOverrides;
 app.UseForwardedHeaders(new ForwardedHeadersOptions
