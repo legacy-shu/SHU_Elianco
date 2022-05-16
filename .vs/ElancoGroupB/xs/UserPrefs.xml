@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{11F769AE-47BA-498F-B51F-3375AFE9CE09}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ElancoGroupB/ElancoGroupB.csproj">
+    <Files>
+      <File FileName="ElancoGroupB/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="ElancoGroupB/appsettings.json" Line="1" Column="1" />
+      <File FileName="ElancoGroupB/Program.cs" Line="1" Column="1" />
+      <File FileName="ElancoGroupB/ElancoGroupB.csproj" Line="20" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ElancoGroupB" expanded="True">
+            <Node name="ElancoGroupB" expanded="True" selected="True">
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ElancoGroupB PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
